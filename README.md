@@ -14,7 +14,7 @@ _**Data preprocessing:**_
 _**Data preprocessing:**_ 
 
   * dataprocessing_eventtype_rat.m 
-  * dataprocessing_eventtype.m 
+  * dataprocessing_concat_eventtype.m 
 
 _**Sleep stages analysis:**_ 
   
