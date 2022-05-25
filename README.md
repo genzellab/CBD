@@ -4,7 +4,7 @@ Repository for CBD project.
 ## Main scripts: :file_folder: 
 
 _**Data preprocessing:**_ 
-  * AdrianDownsampleFiles.m
+  * AdrianDownsampleFiles.m : Downsamples channels to 600 Hz.
 
   * Downsampling_script_2022.m
 
