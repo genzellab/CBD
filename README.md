@@ -13,7 +13,7 @@ _**Data preprocessing:**_
 
 _**Sleep stages analysis:**_ 
   
-  * PCA_sleep_scorer.m : Uses raw data as input. Performs downsampling itself. We didn't use the silhouette analysis that Tuk suggested. 
+  * PCA_sleep_scorer.m : Uses raw data as input. Performs downsampling itself. We didn't use the silhouette analysis that Tuk suggested. It doesn't remove the first 15 minutes of the signal. 
   
   * SleepStagesAnalysis2022.m
  
