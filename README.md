@@ -3,10 +3,19 @@ Repository for CBD project.
 
 ## Main scripts: :file_folder: 
 
-_**Count of event detections:**_ 
-  * File1.m
+_**Data preprocessing:**_ 
+  * AdrianDownsampleFiles.m
 
-  * File2.m
+  * Downsampling_script_2022.m
 
-  * File3.m
+_**Sleep stages analysis:**_ 
+  
+  * PCA_sleep_scorer.m
+  
+  * SleepStagesAnalysis2022.m
+ 
+_**Event detection:**_ 
+  
+  * Swat_Delta_Script.m 
 
+  * FindDeltaWaves.m
