@@ -13,7 +13,7 @@ _**Data preprocessing:**_
 
 _**Sleep stages analysis:**_ 
   
-  * PCA_sleep_scorer.m
+  * PCA_sleep_scorer.m : Uses raw data as input. Performs downsampling itself. 
   
   * SleepStagesAnalysis2022.m
  
