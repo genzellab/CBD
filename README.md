@@ -11,7 +11,7 @@ _**Data preprocessing:**_
 
   * Downsampling_script_2022.m
 
-_**Data preprocessing:**_ 
+_**Data processing:**_ 
 
   * dataprocessing_eventtype_rat.m 
   * dataprocessing_concat_eventtype.m 
