@@ -23,7 +23,7 @@ _**Sleep stages analysis:**_
   * SleepStagesAnalysis2022.m
 
 _**Data alignment:**_ 
-* Cuts first 15 minutes. Aligns in Relation to rat 214. Checks for the maximum (N) number of 45 minute bins possible. Trims to have only those N bins
+* align_dataset.m : Cuts first 15 minutes. Aligns in Relation to rat 214. Checks for the maximum (N) number of 45 minute bins possible. Trims to have only those N bins
  
 _**Event detection:**_ 
   
