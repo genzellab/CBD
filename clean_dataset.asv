@@ -11,22 +11,25 @@ function [] = clean_dataset(regions, selected_region, results_dir, b, a, rats, t
 %   'pfc' in their name to differenciate between those 2 macro regions
 %                                                                          
 %   selected_region - [string] name of the brain region to clean, must be
-%   equal to one of the names of the subfolders of regions
+%   equal to one of the names of the subfolders of 
 %
-%   results_dir - [string] full path to directory where the selected, now 
-%   cleanded brain region for all rats, will be saved
+%   bin_size - [int] duration in minutes for bins in which matrix should
+%   fit to be later splited
 %
-%   b, a - [double array] filter coefficients to filter the signal in a
-%   predefined range
-%
-%   rats - [int array] rats ids expected 
-%
-%   thresholds - [double array] artifact thresholds for every rat, must be
-%   same size and with same order than rats
 %
 % Output:
 %
-%   No output, results are saved to results_dir
+%   signals - [double NxM] matrix with N rats and M samples that can be
+%   uniformly splitted in n bins with bin_size minutes of duration each
+%
+%   sleep_states - [int NxM] matrix witn N rats and M samples in which
+%   every sample is either 1 (REM) or 2 (NREM)
+%
+%   signals_indexes - [int Nx2] array with start and end indexes for each
+%   rat, representing where the signal of every rodent starts and ends
+%   inside the aligned matrix (padded with NaNs)
+%
+%   bins_num - [int] number of bins obtained with bin_size minutes of duration
 
     if ~exist('rats','var')
         rats = [2, 3, 4, 5, 9, 10, 11, 201, 203, 204, 205, 206, 207, 209, 210, 211, 212, 213, 214];

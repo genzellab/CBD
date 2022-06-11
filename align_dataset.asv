@@ -23,11 +23,10 @@ function [signals, sleep_states, signals_indexes, bins_num] = align_dataset(regi
 %   sleep_states - [int NxM] matrix witn N rats and M samples in which
 %   every sample is either 1 (REM) or 2 (NREM)
 %
-%   signals_indexes - [int Nx2] array with start and end indexes for each
-%   rat, representing where the signal of every rodent starts and ends
-%   inside the aligned matrix (padded with NaNs)
-%
-%   bins_num - [int] number of bins obtained with bin_size minutes of duration
+%   
+
+%signals_dirpath = "D:\Dev\MATLAB\GenzelLab\data\hpcbel";
+%states_dirpath = "D:\Dev\MATLAB\GenzelLab\data\sleepstates";
 
 fn = 600;
 ALIGNtot = [26 19 26 10 277 206 247 54 10 11 10 3 16 9 6 6 5 1 0];     
