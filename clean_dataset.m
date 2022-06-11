@@ -44,8 +44,6 @@ function [] = clean_dataset(regions, selected_region, results_dir, b, a, rats, t
     pfc_regions = contains(available_regions, 'pfc');
 
     num_of_regions = length(available_regions);
-    num_of_hpc = sum(hpc_regions == 1);
-    num_of_pfc = sum(pfc_regions == 1);
     num_of_rats = length(rats);
 
     rat_regions = cell(1,num_of_regions);
