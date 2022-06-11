@@ -1,4 +1,4 @@
-function [signals, sleep_states, signals_indexes, bins_num] = align_dataset(signals_dirpath, states_dirpath)
+function [signals, sleep_states, signals_indexes, bins_num] = align_dataset(signals_dirpath, states_dirpath, bin_size)
 % Align Dataset to get aligned data matrix and bin indexes
 %   Detailed explanation goes here
 
@@ -8,7 +8,7 @@ function [signals, sleep_states, signals_indexes, bins_num] = align_dataset(sign
 fn = 600;
 ALIGNtot = [26 19 26 10 277 206 247 54 10 11 10 3 16 9 6 6 5 1 0];     
 remove_at_start = 15 * 60 * fn;
-bin_size = 45*60*fn;
+bin_sz = bin_size*60*fn;
 
 % We get all signal file names and order them (files should be named by a
 % number (Rat ID), this allows to be sure of which row represent wich rat
@@ -17,7 +17,7 @@ are_files = ~cell2mat({signals_dirpath_contents.isdir});
 signals_files = {signals_dirpath_contents(are_files).name};
 ordered_files = zeros(1,length(signals_files));
 for i = 1:length(signals_files)
-    file_i = signals_files{i};
+    file_i = signals_files{i}; 
     [~, name, ~] = fileparts(file_i);
     ordered_files(i) = str2double(name);
 end
@@ -78,14 +78,14 @@ end
 % Now the total number of bins (with the bin_size defined duration) is
 % calculated and matrices are trimmed to the number of samples needed for
 % those bins
-bins_num = floor(length(signals)/bin_size);
-signals = signals(:, 1:bins_num*bin_size);
-sleep_states = sleep_states(:, 1:bins_num*bin_size);
+bins_num = floor(length(signals)/bin_sz);
+signals = signals(:, 1:bins_num*bin_sz);
+sleep_states = sleep_states(:, 1:bins_num*bin_sz);
 % As we just trimmed the matrix, we make sure that any signal top index
 % that was trimmed is updated
 for i = 1:rats_num
-    if signals_indexes(i,2) >= bins_num*bin_size
-        signals_indexes(i,2) = bins_num*bin_size;
+    if signals_indexes(i,2) >= bins_num*bin_sz
+        signals_indexes(i,2) = bins_num*bin_sz;
     end
 end
 
