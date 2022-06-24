@@ -24,7 +24,7 @@ regions = uigetdir('..', 'Folder with all brain regions data');
 % hippocampal pyramidal layer 
 % for ripple detection
 answer = inputdlg('Brain region','Select brain region to process', [1 55], {'hpc_pyra'});
-selected_region = answer{1}';
+selected_region = answer{1};
 % filter for ripple detection
 [b,a] = butter(3, [90/300 200/300]);
 
@@ -35,10 +35,10 @@ clean_dataset(regions, selected_region, results_dir, b, a, rats, thresholds);
 
 region_dirpath = results_dir;
 
-[signals, sleep_states, signals_indexes, ~] = align_dataset(region_dirpath, states_dirpath, bin_size);
+[signals, sleep_states, signals_indexes, bins_num] = align_dataset(region_dirpath, states_dirpath, bin_size);
 
 results_dir = uigetdir('..','Folder to save processed data');
-save(fullfile(results_dir, ['processed_' selected_region '.mat']), 'signals', 'sleep_states', 'signals_indexes', '-v7.3');
+save(fullfile(results_dir, ['processed_' selected_region '.mat']), 'signals', 'sleep_states', 'signals_indexes', 'bins_num', '-v7.3');
 
 %% Sharpwaves - Preprocessing: Cleaning %%
 
@@ -49,7 +49,7 @@ regions = uigetdir('..', 'Folder with all brain regions data');
 % hippocampal below pyramidal layer 
 % for sharpwave detection
 answer = inputdlg('Brain region','Select brain region to process', [1 55], {'hpc_belo'});
-selected_region = answer{1}';
+selected_region = answer{1};
 % filter for ripple detection
 [b,a] = butter(3, [2/300 20/300]);
 
@@ -60,10 +60,10 @@ clean_dataset(regions, selected_region, results_dir, b, a, rats, thresholds);
 
 region_dirpath = results_dir;
 
-[signals, sleep_states, signals_indexes, ~] = align_dataset(region_dirpath, states_dirpath, bin_size);
+[signals, sleep_states, signals_indexes, bins_num] = align_dataset(region_dirpath, states_dirpath, bin_size);
 
 results_dir = uigetdir('','Folder to save processed data');
-save(fullfile(results_dir, ['processed_' selected_region '.mat']), 'signals', 'sleep_states', 'signals_indexes', '-v7.3');
+save(fullfile(results_dir, ['processed_' selected_region '.mat']), 'signals', 'sleep_states', 'signals_indexes', 'bins_num', '-v7.3');
 
 %% End
 clear

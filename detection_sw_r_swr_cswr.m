@@ -24,7 +24,7 @@ for i = 1:length(rats)
     sig = processed_pyra.signals(i, lims(1):lims(2));
     yourtimevector = (1:length(sig))/fn;
     detection_threshold = mean(sig) + ripple_thresholds(i)*std(sig);
-    [S, E, M] = findRipplesLisa(sig', yourtimevector, detection_threshold, (detection_threshold)*(1/2), 600 );
+    [S, E, M] = findRipplesLisa(sig, yourtimevector, detection_threshold, (detection_threshold)*(1/2), 600 );
     r_spe = [S'*fn, M'*fn, E'*fn] + lims(1);
     r_num = length(M);
     
@@ -35,8 +35,8 @@ for i = 1:length(rats)
     spw = double(sig <= detection_threshold);
     dspw = abs(diff(spw));
     sw_event_marks = find(dspw);
-    sw_event_lims = [sw_event_marks(1:2:end), sw_event_marks(2:2:end)];
-    sw_num = length(sw_event_marks)/2;
+    sw_event_lims = [sw_event_marks(1:2:end); sw_event_marks(2:2:end)]';
+    sw_num = length(sw_event_lims);
     peaks = zeros(sw_num,1);
     for j = 1:sw_num
         sw_lim = sw_event_lims(j,:);
@@ -56,7 +56,7 @@ for i = 1:length(rats)
     Six_Start = Start - Six_Start;
     Six_End = Peak + 1800;
     Six_End = 3601 - (Six_End - End);
-    Sleep_State = processed_pyra.sleep_states(i,Peak);
+    Sleep_State = processed_pyra.sleep_states(i,int64(Peak))';
     Bin = ceil(Peak /(sigs_len / bins_num));
     oscil_table = table(Type, Start, Peak, End, Six_Start, Six_End, Sleep_State, Bin);
     oscil_table = sortrows(oscil_table, 3);
@@ -127,11 +127,12 @@ for i = 1:length(rats)
     End = End(indexes)';
     Six_Start = Six_Start(indexes)';
     Six_End = Six_End(indexes)';
-    Sleep_State = processed_pyra.sleep_states(i,Peak);
+    Sleep_State = processed_pyra.sleep_states(i,int64(Peak))';
     Bin = ceil(Peak /(sigs_len / bins_num));
     simples_complexes = table(Type, Form, Start, Peak, End, Six_Start, Six_End, Sleep_State, Bin);
     grouped_oscil_table = [singles; simples_complexes];
     grouped_oscil_table = sortrows(grouped_oscil_table, 4);
     
-    save(results_dir, 'oscil_table', 'grouped_oscil_table');
+    result_file = [num2str(rats(i)) '.mat'];
+    save(fullfile(results_dir, result_file), 'oscil_table', 'grouped_oscil_table');
 end
