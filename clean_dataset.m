@@ -78,7 +78,6 @@ function [] = clean_dataset(regions, selected_region, results_dir, b, a, rats, t
                 index = index +1;
             end
         end
-
         j = ismember(available_regions, selected_region);
         rat_region = rat_regions{j};
         rat_region = filtfilt(b, a, rat_region);
