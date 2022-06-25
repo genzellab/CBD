@@ -1,3 +1,5 @@
+fn = 600;
+bin_size = 45*60*fn;
 % rat ids
 rats = [2, 3, 4, 5, 9, 10, 11, 201, 203, 204, 205, 206, 207, 209, 210, 211, 212, 213, 214];
 cbd_rats = {'Rat2', 'Rat5', 'Rat10', 'Rat11', 'Rat204', 'Rat205', 'Rat207', 'Rat209', 'Rat212', 'Rat214'};
@@ -5,11 +7,14 @@ veh_rats = {'Rat3', 'Rat4', 'Rat9', 'Rat201', 'Rat203', 'Rat206', 'Rat210', 'Rat
 
 detections_dir = uigetdir('..', 'Folder with detection files');
 
+[file,path] = uigetfile('*.mat', 'Select processed pyramidal data file');
+sleep_states = load(fullfile(path, file), 'sleep_states').sleep_states;
+
 detections_tables = struct();
 for i = 1:length(rats)
     rat = [num2str(rats(i)) '.mat'];
     detections_file = fullfile(detections_dir, rat);
-    detections_tables.(['rat' num2str(rats(i))]) = load(detections_file, 'grouped_oscil_table').grouped_oscil_table;
+    detections_tables.(['Rat' num2str(rats(i))]) = load(detections_file, 'grouped_oscil_table').grouped_oscil_table;
 end
 
 counts = struct();
@@ -42,7 +47,14 @@ for i = 1:length(categories)
             end
             result = height(rat(count_mask, :));
             if result == 0
-                result = "";
+                lims = int64([bin_size*(j-1) bin_size*(j)]);
+                if lims(1) == 0; lims(1) = 1; end
+                sig = sleep_states(k, lims(1):lims(2));
+                if find(~isnan(sig))
+                    result = 0;
+                else
+                    result = "";
+                end
             end
             counts.(categories(i)).(bin)(end + 1,1) = result;
         end
@@ -50,7 +62,7 @@ for i = 1:length(categories)
 end
 
 results_dir = uigetdir('..', 'Folder to save resulting counts');
-output_file = fullfile(results_dir, "counts_sw_r.xls");
+output_file = fullfile(results_dir, "counts.xls");
 sheets = fieldnames(counts);
 for i = 1:length(sheets)
     sheet = sheets{i};
