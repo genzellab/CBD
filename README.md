@@ -13,6 +13,18 @@ _**Data preprocessing:**_
 
 _**Data processing:**_ 
 
+ * dataprocessing_eventtype_rat_HPC.m
+ 
+ * dataprocessing_eventtype_rat_PFC.m
+ 
+ * dataprocessing_concat_eventtype_HPC.m
+ 
+ * dataprocessing_concat_eventtype_PFC.m
+ 
+ * dataprocessing_median2000events_treatment_eventtype.m
+ 
+ * create_baseline.m
+
 
 _**Sleep stages analysis:**_ 
   
