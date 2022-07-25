@@ -9,7 +9,7 @@ Repository for CBD project.
 _**Data preprocessing:**_ 
   * AdrianDownsampleFiles.m : Downsamples channels to 600 Hz.
 
-  * Downsampling_script_2022.m
+  * Downsampling_script_2022.m (Outdated, not used)
 
 _**Data processing:**_ 
 
