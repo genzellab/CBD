@@ -13,17 +13,17 @@ _**Data preprocessing:**_
 
 _**Data processing:**_ 
 
- * dataprocessing_eventtype_rat_HPC.m
+ * dataprocessing_eventtype_rat_HPC.m (non-binned data)
  
- * dataprocessing_eventtype_rat_PFC.m
+ * dataprocessing_eventtype_rat_PFC.m (non-binned data)
  
- * dataprocessing_concat_eventtype_HPC.m
+ * dataprocessing_concat_eventtype_HPC.m (non-binned data)
  
- * dataprocessing_concat_eventtype_PFC.m
+ * dataprocessing_concat_eventtype_PFC.m (non-binned data)
  
- * dataprocessing_median2000events_treatment_eventtype.m
+ * dataprocessing_median2000events_treatment_eventtype.m (non-binned data)
  
- * create_baseline.m
+ * create_baseline.m (binned data)
 
 
 _**Sleep stages analysis:**_ 
