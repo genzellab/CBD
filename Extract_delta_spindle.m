@@ -516,6 +516,8 @@ writetable(TT,'SpindleChara.xls','Sheet',1)
 % xlim([16678 16681])
 % xlim([3242 3263.5])
 % xlim([3242 3246])
+
+
 %% rat-wise chara data
 
 % for k=0:5
@@ -532,7 +534,7 @@ writetable(TT,'SpindleChara.xls','Sheet',1)
 % clear tp1 tp2
 % end
 % subplot(5,4,i)
-% [xx,xy,xz,~,~,xq,xl,xp,~,~,~]=delta_specs_org_edit(jk,0,k);
+% [xx,xy,xz,~,~,xq,xl,xp,~,~,~]= eachSpecs_hist(jk,0,k);
 % legend(num2str(i))
 % end
 % end
