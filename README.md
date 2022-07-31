@@ -40,3 +40,9 @@ _**Event detection:**_
   * Swat_Delta_Script.m 
 
   * FindDeltaWaves.m
+  
+_**Data extraction:**_ 
+
+The following steps may be implemented to detect delta events and spindle events from EEG:
+
+  1. Use ```align_dataset.m ```
