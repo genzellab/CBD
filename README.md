@@ -41,8 +41,19 @@ _**Event detection:**_
 
   * FindDeltaWaves.m
   
-_**Data extraction:**_ 
+_**Delta and Spindle event analysis:**_ 
 
-The following steps may be implemented to detect delta events and spindle events from EEG:
+The following steps may be implemented to detect delta events from the signal recorded from the hippocampal (HPC) region:
 
-  1. Use ```align_dataset.m ```
+  1. Compute filter parameters ```b ``` (transfer coefficients in the numerator) and ```a``` (transfer coefficients in the denominator), for filtering with a butterworth filter with a cut-off frequency of 1 to 6  Hz.
+  2. Use ```clean_dataset.m ```, with the necessary inputs, to filter the raw signal data and store in the folder, as specified by ```results_dir```.
+  3. Use ```align_dataset.m ``` (with inputs as obtained from the previous step), to compute the variables: ```signals``` (the aligned EEG data), ```sleep_states``` (the aligned sleep states), ```signals_indexes``` (the indices corresponding to the signal recording, along time) and ```bins_num``` (the number of bins possible based on the bin size specified). Export the output variables  as ```forDelta.mat```.
+  
+ The following steps may be implemented to detect spindle events from the signal recorded from the prefrontal cortex (PFC) region:
+  1. Compute filter parameters ```b``` (transfer coefficients in the numerator) and ```a``` (transfer coefficients in the denominator), for filtering with a butterworth filter with a cut-off frequency of 9 to 20  Hz.
+  2. Use ```clean_dataset.m ```, with the necessary inputs, to filter the raw signal data and store in the folder, as specified by ```results_dir```.
+  3. Use ```align_dataset.m ``` (with inputs as obtained from the previous step), to compute the variables: ```signals``` (the aligned EEG data), ```sleep_states``` (the aligned sleep states), ```signals_indexes``` (the indices corresponding to the signal recording, along time) and ```bins_num``` (the number of bins possible based on the bin size specified). Export the output variables, together, as ```forSpindles.mat```.
+
+To analyse these ```.mat``` datasets, the script ```delta_spindle_extract.m``` may be run next. The charateristics of the delta events and the spindle events will be exported as excel sheets "DeltaChara.xls" and "SpindleChara.xls", respectively.
+
+Additionally, data regarding time-bins & NREM bouts durations will be exported as "Recording_duration.xls", and the delta event counts will be exported as "DeltaCount_split.xls".
