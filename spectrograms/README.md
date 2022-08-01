@@ -1,6 +1,8 @@
 
 # Spectrogram analysis
 
-Main scripts:
+_**Data processing**_ 
 
-Functions:
+_**Spectrograms**_ 
+
+_**Functions**_ 
