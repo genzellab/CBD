@@ -1,5 +1,5 @@
 
-# Spectrogram analysis
+# Spectrogram Analysis
 
 _**Data processing**_ 
 
