@@ -4,7 +4,7 @@ Dependencies: To-add.
 # CBD
 Repository for CBD project. 
 
-## Main scripts: :file_folder: 
+## Main scripts for Acute data: :file_folder: 
 
 _**Data preprocessing:**_ 
   * AdrianDownsampleFiles.m : Downsamples channels to 600 Hz.
