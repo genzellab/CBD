@@ -1,7 +1,7 @@
 # **:sparkles: Spectrograms :sparkles:**
 
 
-:exclamation: Requirements:
+:boom: Requirements:
 
 
 _Required Matlab built-in toolboxes:_
