@@ -1,4 +1,4 @@
-**:sparkles: # Spectrograms :sparkles:**
+# **:sparkles: Spectrograms :sparkles:**
 
 
 :exclamation: Requirements:
