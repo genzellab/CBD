@@ -51,6 +51,10 @@ The following steps may be implemented to prepare the data for detecting delta e
 
 The script ```DeltaSpindleDetection.m``` can be run to detect delta and spindle events from the ```.mat``` data. The events detected is then saved, as specified in the script.
 
-The script ```delta_spindle_extract.m``` should be run next to export the charateristics of the delta events and the spindle events as the excel sheets "DeltaChara.xls" and "SpindleChara.xls", respectively.
+The script ```DeltaSpindleExtract.m``` should be run next to export the charateristics of the delta events and the spindle events as the excel sheets "DeltaChara.xls" and "SpindleChara.xls", respectively.
 
 Additionally, data regarding time-bins & NREM bouts durations will be exported as "Recording_duration.xls", and the delta event counts will be exported as "DeltaCount_split.xls", when the ```DeltaSpindleDetection.m``` script is run.
+
+_**Sharp wave ripple analysis**_ 
+
+The sharp wave ripples (SWRs) that has been saved for each rat, as ```oscil_table``` and ```grouped_oscil_table```, can be analysed by running the script ```swr_traces.m```. The script loads the detections and extracts the corresponding traces from the necessary HPC signal. The characteristics of each form of swr is stored as "SWRChara.xls" on separated sheets.
