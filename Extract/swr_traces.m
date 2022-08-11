@@ -207,41 +207,41 @@ for k=1:6 % For each form
         writetable(TT,'SWRChara.xls','Sheet',['Form',num2str(k),' bel.'])
         
         
-    else
-        fxd={};
-        fxd{1} = xd{k}';
-        fxd{2} = yd{k}';
-        fxd{3} = zd{k}';
-        fxd{4} = ld{k}';
-        fxd{5} = qd{k}';
-        fxd{6} = pd{k}';
-        fxd{7} = xcd{k}';
-        fxd{8} = ycd{k}';
-        fxd{9} = zcd{k}';
-        fxd{10} = lcd{k}';
-        fxd{11} = qcd{k}';
-        fxd{12} = pcd{k}';
-        % x,xc - Instantaneous Frequencies
-        % y,yc - Average frequency
-        % z,zc - Amplitude
-        % l,lc - Area under the curve
-        % q,qc - Duration
-        % p,pc - Peak-to-peak distance
-        maximum = max(cellfun(@length, fxd));
-        for i=1:12
-            fxd{i} = [fxd{i};zeros(maximum-length(fxd{i}),1)*nan];  % add nans at the end
-        end
-        
-        cd 'F:\OSF\swr_analysys\Chara'
-        
-        TT=table(fxd{1},fxd{2},fxd{3},fxd{4},fxd{5},fxd{6},...
-            fxd{7},fxd{8},fxd{9},fxd{10},fxd{11},fxd{12});
-        TT.Properties.VariableNames={'Instantaneous Frequencies (Veh)','Average Frequencies (Veh)',...
-            'Amplitude (\muV) (Veh)','Area under the curve (Veh)','Duration(ms) (Veh)',...
-            'Peak-to-peak amplitude (\muV) (Veh)',...
-            'Instantaneous Frequencies (CBD)','Average Frequencies (CBD)',...
-            'Amplitude(\muV) (CBD)','Area under the curve (CBD)','Duration(ms) (CBD)'...
-            'Peak-to-peak amplitude(\muV) (CBD)'};
-        writetable(TT,'SWRChara.xls','Sheet',['Form',num2str(k)])
     end
+    
+    fxd={};
+    fxd{1} = xd{k}';
+    fxd{2} = yd{k}';
+    fxd{3} = zd{k}';
+    fxd{4} = ld{k}';
+    fxd{5} = qd{k}';
+    fxd{6} = pd{k}';
+    fxd{7} = xcd{k}';
+    fxd{8} = ycd{k}';
+    fxd{9} = zcd{k}';
+    fxd{10} = lcd{k}';
+    fxd{11} = qcd{k}';
+    fxd{12} = pcd{k}';
+    % x,xc - Instantaneous Frequencies
+    % y,yc - Average frequency
+    % z,zc - Amplitude
+    % l,lc - Area under the curve
+    % q,qc - Duration
+    % p,pc - Peak-to-peak distance
+    maximum = max(cellfun(@length, fxd));
+    for i=1:12
+        fxd{i} = [fxd{i};zeros(maximum-length(fxd{i}),1)*nan];  % add nans at the end
+    end
+    
+    cd 'F:\OSF\swr_analysys\Chara'
+    
+    TT=table(fxd{1},fxd{2},fxd{3},fxd{4},fxd{5},fxd{6},...
+        fxd{7},fxd{8},fxd{9},fxd{10},fxd{11},fxd{12});
+    TT.Properties.VariableNames={'Instantaneous Frequencies (Veh)','Average Frequencies (Veh)',...
+        'Amplitude (\muV) (Veh)','Area under the curve (Veh)','Duration(ms) (Veh)',...
+        'Peak-to-peak amplitude (\muV) (Veh)',...
+        'Instantaneous Frequencies (CBD)','Average Frequencies (CBD)',...
+        'Amplitude(\muV) (CBD)','Area under the curve (CBD)','Duration(ms) (CBD)'...
+        'Peak-to-peak amplitude(\muV) (CBD)'};
+    writetable(TT,'SWRChara.xls','Sheet',['Form',num2str(k)]) 
 end
