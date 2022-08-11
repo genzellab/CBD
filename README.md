@@ -26,6 +26,15 @@ _**Event detection:**_
 
   * FindDeltaWaves.m
   
+_**Data alignment:**_ 
+* align_dataset.m : Cuts first 15 minutes. Aligns in Relation to rat 214. Checks for the maximum (N) number of 45 minute bins possible. Trims to have only those N bins
+ 
+_**Event detection:**_ 
+  
+  * Swat_Delta_Script.m 
+
+  * FindDeltaWaves.m
+  
 _**Delta and Spindle event analysis:**_ 
 
 The following steps may be implemented to prepare the data for detecting delta events from the signal recorded from the hippocampal (HPC) region:
