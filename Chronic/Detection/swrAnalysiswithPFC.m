@@ -588,7 +588,7 @@ save(strcat('ripple_phases_compilation_Rat',rat_folder{k},'.mat'),'ripple_phases
 
     cd ..
 % k=k+1        
-end
+%end
 %         zsinglet_total=[];
 %         zdoublet_total=[];
 %         ztriplet_total=[];
