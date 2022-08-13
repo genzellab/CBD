@@ -16,6 +16,6 @@ Repository for CBD project.
 - Linda Tomy
 - Swatantra Dhara
 - Kopal Agarwal
-- Pelin Ozsezer
+- Pelin Özsezer
 
 
