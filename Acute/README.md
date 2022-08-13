@@ -1,8 +1,3 @@
-Dependencies: To-add. 
-
-
-# CBD
-Repository for CBD project. 
 
 ## Main scripts for Acute data: :file_folder: 
 
