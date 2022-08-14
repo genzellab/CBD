@@ -13,6 +13,7 @@ _**Sleep stages analysis:**_
   * SleepStagesAnalysis2022.m : Adaptation of Tuk's thesis script.
   
 _**Data alignment:**_ 
+
 For running the next script some file renaming is needed in the data. More details to come.
 * align_dataset.m : Cuts first 15 minutes. Aligns in Relation to rat 214. Checks for the maximum (N) number of 45 minute bins possible. Trims to have only those N bins
  
