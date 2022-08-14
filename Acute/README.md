@@ -28,7 +28,7 @@ _**Delta and Spindle event analysis:**_
 The following steps may be implemented to prepare the data for detecting delta events from the signal recorded from the hippocampal (HPC) region:
 
   1. Compute filter parameters ```b ``` (transfer coefficients in the numerator) and ```a``` (transfer coefficients in the denominator), for filtering with a butterworth filter with a cut-off frequency of 1 to 6  Hz.
-  2. Use ```clean_dataset.m ```, with the necessary inputs, to filter the raw signal data and store in the folder, as specified by ```results_dir```.
+  2. Use ```clean_dataset.m ```, with the necessary inputs, to filter the raw signal data and store in the folder, as specified by ```results_dir```.  Example: ```  clean_dataset('F:\OSF\swr_analysys\brain_regions', 'hpc_pyra', 'results_dir', b, a)``` 
   3. Use ```align_dataset.m ``` (with inputs as obtained from the previous step), to compute the variables: ```signals``` (the aligned EEG data), ```sleep_states``` (the aligned sleep states), ```signals_indexes``` (the indices corresponding to the signal recording, along time) and ```bins_num``` (the number of bins possible based on the bin size specified). Export the output variables  as ```forDelta.mat```.
   
  The following steps may be implemented to prepare the data for detecting spindle events from the signal recorded from the prefrontal cortex (PFC) region:
