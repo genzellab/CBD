@@ -12,7 +12,7 @@ function [signals, sleep_states, signals_indexes, bins_num] = align_dataset_peli
 %   all rats 
 %
 %   bin_size - [int] duration in minutes for bins in which matrix should
-%   fit to be later splited
+%   fit to be later split.
 %
 %
 % Output:
