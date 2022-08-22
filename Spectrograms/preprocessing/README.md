@@ -1,7 +1,12 @@
 # Data preprocessing
 
-- preprocessing_pelin.m: Main script to run alignment. Adapted from Victor's script.
-## IMPORTANT: The PFC data was not (bandpass) filtered.
+- preprocessing_spec.m: Main script to run alignment. Adapted from Victor's script.
+
+- clean_dataset_spec.m:
+
+- align_dataset_spec.m:
+
+### IMPORTANT: The PFC data was not (bandpass) filtered.
 
 The results of this function were:
 
