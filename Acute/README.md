@@ -43,7 +43,7 @@ _**Sharp wave ripple analysis**_
 The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/OSF/swr_analysys
  
  Folders:
-- brain_regions
+- brain_regions: Not bandpassed. Just downsampled to 600 Hz. 
 - sleepstates
 - detections
 
