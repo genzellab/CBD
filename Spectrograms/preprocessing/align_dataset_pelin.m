@@ -52,7 +52,7 @@ rats_num = length(ordered_files);
 signals_indexes = zeros(rats_num, 2);
 
 % We will align all signals and sleep states in cell arrays. Here 15
-% minutes of data are cutted out, signals are trimed to the length of the
+% minutes of data are cut out, signals are trimed to the length of the
 % sleep states and both states and signals are aligned with respect to ALIGNtot
 sigs = cell(1, length(rats_num));
 states = cell(1, length(rats_num));
