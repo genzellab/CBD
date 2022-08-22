@@ -1,6 +1,6 @@
 # Data preprocessing
 
-- function_pelin.m: Main function to run alignment. Adapted from Victor's script.
+- preprocessing_pelin.m: Main script to run alignment. Adapted from Victor's script.
 ## IMPORTANT: The PFC data was not (bandpass) filtered.
 
 The results of this function were:
