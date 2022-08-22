@@ -6,7 +6,7 @@
 
 - align_dataset_spec.m:
 
-## IMPORTANT: The PFC data was not (bandpass) filtered.
+### IMPORTANT: The PFC data was not (bandpass) filtered.
 
 The results of this function were:
 
