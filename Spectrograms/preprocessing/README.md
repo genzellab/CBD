@@ -2,8 +2,10 @@
 
 - preprocessing_spec.m: Main script to run alignment. Adapted from Victor's script.
 
-- functions:
--- clean_dataset_spec.m
+- clean_dataset_spec.m:
+
+- align_dataset_spec.m:
+
 ## IMPORTANT: The PFC data was not (bandpass) filtered.
 
 The results of this function were:
