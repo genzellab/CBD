@@ -28,13 +28,13 @@ selected_region = answer{1};
 
 
 % Cleaning of hippocampal pyramidal layer signals of all rats
-clean_dataset_pelin(regions, selected_region, results_dir, rats, thresholds);
+clean_dataset_spec(regions, selected_region, results_dir, rats, thresholds);
 
 %% Ripples - Preprocessing: Alignment %%
 
 region_dirpath = results_dir;
 
-[signals, sleep_states, signals_indexes, bins_num] = align_dataset_pelin(region_dirpath, states_dirpath, bin_size);
+[signals, sleep_states, signals_indexes, bins_num] = align_dataset_spec(region_dirpath, states_dirpath, bin_size);
 
 results_dir = uigetdir('..','Folder to save processed data');
 save(fullfile(results_dir, ['processed_' selected_region '.mat']), 'signals', 'sleep_states', 'signals_indexes', 'bins_num', '-v7.3');
