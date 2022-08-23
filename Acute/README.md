@@ -48,4 +48,4 @@ The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/
 - detections
 
 The sharp wave ripples (SWRs) that has been saved for each rat, as ```oscil_table``` and ```grouped_oscil_table```, can be analysed by running the script ```swr_traces.m```. The script loads the detections and extracts the corresponding traces from the necessary HPC signal. The characteristics of each form of swr is stored as "SWRChara.xls" on separated sheets.
-(Note: The ```p_hpc.mat``` and ```b_hpc.mat``` files can be created by following steps similar to that used to prepare the signals for spindle/delta detection, with the necessary changes. For the ```p_hpc.mat``` dataset, use a passband of 90 to 200 Hz, and for ```b_hpc.mat```, use a passband of 2 to 20 Hz, on the corresponding HPC datasets.)
+(Note: The ```p_hpc.mat``` and ```b_hpc.mat``` files can be created by following steps similar to that used to prepare the signals for spindle/delta detection, with the necessary changes. For the ```p_hpc.mat``` dataset, use a passband of 90 to 200 Hz, and for ```b_hpc.mat```, use a bandpass of 2 to 20 Hz, on the corresponding HPC datasets.)
