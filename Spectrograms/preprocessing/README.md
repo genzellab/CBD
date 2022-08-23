@@ -1,6 +1,6 @@
 # Data preprocessing
 
-- preprocessing_spec.m: Main script to run alignment. Adapted from Victor's script.
+- preprocessing_spec.m: Main script to run alignment. Adapted from Victor's script. This makes use of the following folders as arguments: `brain_regions` and `sleepstates`
 
 - clean_dataset_spec.m:
 
