@@ -52,14 +52,15 @@ The sharp wave ripples (SWRs) that has been saved for each rat, as ```oscil_tabl
 
 # Coding system:
 
-Sleep stages:
-1 corresponds to REM-like and 2 to NREM-like.
+_Sleep stages:_
 
-Event types:
-1 single sw
-2 single r
-3 simple sw-swr
-4 simple r-swr
-5 complex sw-swr
-6 complex r-swr
+ 1 corresponds to REM-like and 2 to NREM-like.
+
+_Event types:_
+- 1 single sw
+- 2 single r
+- 3 simple sw-swr
+- 4 simple r-swr
+- 5 complex sw-swr
+- 6 complex r-swr
 
