@@ -1,3 +1,4 @@
+cd('/home/adrian/Downloads')
 T_SW = readtable('SWRChara.xls','Sheet','Form1');
 %%
 SW_Amp_Veh=T_SW(:,3);
@@ -121,6 +122,15 @@ y1=y1(~isnan(y1));
 
 
 p = polyfit(x1,y1,1);
+
+%%
+X=min(x1):max(x1);
+
+[slope, intercept] = logfit(x1,y1,'logy');
+yApprox = (10^intercept)*(10^slope).^X;
+
+
+plot(X,yApprox,'LineWidth',3,'Color',[0 0 0])
 %%
 % figure()
 y2 = polyval(p,x1);
@@ -139,11 +149,19 @@ y1=[ripples_Amp_Veh;SWRripples_Amp_Veh;cSWRripples_Amp_Veh];
 x1=x1(~isnan(x1));
 y1=y1(~isnan(y1));
 
+X=min(x1):max(x1);
 
-p = polyfit(x1,y1,1);
-y2 = polyval(p,x1);
+[slope, intercept] = logfit(x1,y1,'logy');
+yApprox = (10^intercept)*(10^slope).^X;
 
-loglog(x1,y2)
+
+plot(X,yApprox,'LineWidth',3,'Color',[0 0 0])
+
+% 
+% p = polyfit(x1,y1,1);
+% y2 = polyval(p,x1);
+% 
+% loglog(x1,y2)
 %%
 legend('SW','Ripples','SWR SW', 'SWR Ripples','CSWR SW','CSWR Ripples','Fit SW','Fit Ripples' )
 %%

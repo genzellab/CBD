@@ -1,3 +1,4 @@
+cd('/home/adrian/Downloads')
 T_SW = readtable('SWRChara.xls','Sheet','Form1');
 %%
 SW_Amp_Veh=T_SW(:,3);
@@ -30,6 +31,7 @@ xlabel('Duration (ms)')
 ylabel('Amplitude (mV)')
  set(gca,'xscale','log')
  set(gca,'yscale','log')
+ hold on
  %%
  %% SWR Sharp wave
 
@@ -120,10 +122,38 @@ y1=y1(~isnan(y1));
 
 
 p = polyfit(x1,y1,1);
+
 %%
-figure()
+X=min(x1):max(x1);
+
+[slope, intercept] = logfit(x1,y1,'logy');
+yApprox = (10^intercept)*(10^slope).^X;
+
+
+%%
+% figure()
 y2 = polyval(p,x1);
 
 
-plot(x1,y2)
-%legend('cos(x)','cos(2x)')
+% plot(x1,y2)
+%  set(gca,'xscale','log')
+%  set(gca,'yscale','log')
+loglog(x1,y2)
+%%
+%Ripples 
+x1=[ripples_Dur_Veh;SWRripples_Dur_Veh;cSWRripples_Dur_Veh];
+y1=[ripples_Amp_Veh;SWRripples_Amp_Veh;cSWRripples_Amp_Veh];
+
+
+x1=x1(~isnan(x1));
+y1=y1(~isnan(y1));
+
+
+p = polyfit(x1,y1,1);
+y2 = polyval(p,x1);
+
+loglog(x1,y2)
+%%
+legend('SW','Ripples','SWR SW', 'SWR Ripples','CSWR SW','CSWR Ripples','Fit SW','Fit Ripples' )
+%%
+

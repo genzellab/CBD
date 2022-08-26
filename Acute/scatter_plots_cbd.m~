@@ -1,4 +1,5 @@
 T_SW = readtable('SWRChara.xls','Sheet','Form1');
+addpath('/home/adrian/Downloads/logfit')
 %%
 SW_Amp_CBD=T_SW(:,9);
 SW_Dur_CBD=T_SW(:,11);
@@ -159,7 +160,7 @@ yApprox = (10^intercept)*(10^slope).^X;
 
 plot(X,yApprox,'LineWidth',3,'Color',[0 1 0])
 %%
-legend('Ripple','SWR Ripple','CSWR Ripple','CBD Ripple','CBD SWR Ripple','CBD CSWR Ripple','Fit VEH Ripple types', 'Fit CBD Ripple types')
+legend('Ripple','SWR Ripple','CSWR SW','CBD SW','CBD SWR SW','CBD CSWR SW','Fit VEH SW types', 'Fit CBD SW types')
 
 % 
 % p = polyfit(x1,y1,1);
