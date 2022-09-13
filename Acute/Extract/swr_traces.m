@@ -129,14 +129,14 @@ for k=1:6 % For each form
     figure
     [xd{k},yd{k},zd{k},~,~,qd{k},ld{k},pd{k},~,~,~,...
         xcd{k},ycd{k},zcd{k},~,~,qcd{k},lcd{k},pcd{k},~]...
-        =delta_specs(d_v,d_c,0,1);
+        =specsHist(d_v,d_c,0,1);
     sgtitle(['Form ',num2str(k)])
     
     if (k==1)
         figure
         [xd1{k},yd1{k},zd1{k},~,~,qd1{k},ld1{k},pd1{k},~,~,~,...
             xcd1{k},ycd1{k},zcd1{k},~,~,qcd1{k},lcd1{k},pcd1{k},~]...
-            =delta_specs(d_v_1,d_c_1,0,1);
+            =specsHist(d_v_1,d_c_1,0,1);
         sgtitle(['Form ',num2str(k),' Pyramidal'])
         fxd1={};
         fxd1{1} = xd1{k}';
@@ -173,7 +173,7 @@ for k=1:6 % For each form
         figure
         [xd2{k},yd2{k},zd2{k},~,~,qd2{k},ld2{k},pd2{k},~,~,~,...
             xcd2{k},ycd2{k},zcd2{k},~,~,qcd2{k},lcd2{k},pcd2{k},~]...
-            =delta_specs(d_v_2,d_c_2,0,1);
+            =specsHist(d_v_2,d_c_2,0,1);
         sgtitle(['Form ',num2str(k),' Below'])
         fxd2={};
         fxd2{1} = xd2{k}';
