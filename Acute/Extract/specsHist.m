@@ -1,7 +1,13 @@
 function [x,y,z,w,h,q,l,p,si_mixed,th,PCA_features_v,...
     xc,yc,zc,wc,hc,qc,lc,pc,PCA_features_r]= specsHist(si,sc,timeasleep,print_hist)
 %Computes main features of events detected.
-% 
+% Inputs:
+% si   - traces from vehicle data
+% sc   - traces from CBD data
+% timeasleep - maybe set to 0
+% print_hist - maybe set to 1 to produce histogram plots
+%
+% Outputs:
 % x,xc - Instantaneous Frequencies
 % y,yc - Average frequency
 % z,zc - Amplitude
