@@ -1,4 +1,15 @@
 cd('/home/adrian/Downloads')
+%Forms
+% Form1: Sharp-wave.
+% Form2: Ripple.
+% Form3: Sharp-wave of SWR.
+% Form4: Ripple of SWR.
+% Form5: Sharp-wave of cSWR.
+% Form6: Ripple of cSWR.
+
+%Suggestion: For SW, it is better to use AUC with respect to the ripple
+%duration. 
+
 T_SW = readtable('SWRChara.xls','Sheet','Form1');
 %%
 SW_Amp_Veh=T_SW(:,3);
