@@ -2,7 +2,7 @@
 ## Main scripts for Acute data: :file_folder: 
 
 _**Data preprocessing:**_ 
-  * AdrianDownsampleFiles.m : Downsamples channels to 600 Hz.
+  * DownsampleFiles.m : Downsamples channels to 600 Hz. Formerly called 'AdrianDownsampleFiles.m'
 
   * Downsampling_script_2022.m (Outdated, not used)
 
