@@ -12,6 +12,20 @@ _**Sleep stages analysis:**_
   
   * SleepStagesAnalysis2022.m : Adaptation of Tuk's thesis script.
   
+  
+_**Sharp wave ripple types analysis**_ 
+
+The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/OSF/swr_analysys
+ 
+ Folders:
+- brain_regions: Not bandpassed. Just downsampled to 600 Hz. 
+- sleepstates
+- detections
+
+The sharp wave ripples (SWRs) that has been saved for each rat, as ```oscil_table``` and ```grouped_oscil_table```, can be analysed by running the script ```swr_traces.m```. The script loads the detections and extracts the corresponding traces from the necessary HPC signal. The characteristics of each form of swr is stored as "SWRChara.xls" on separated sheets.
+(Note: The ```p_hpc.mat``` and ```b_hpc.mat``` files can be created by following steps similar to that used to prepare the signals for spindle/delta detection, with the necessary changes. For the ```p_hpc.mat``` dataset, use a bandpass of 90 to 200 Hz, and for ```b_hpc.mat```, use a bandpass of 2 to 20 Hz, on the corresponding HPC datasets.)
+    
+  
 _**Data alignment:**_ 
 
 For running the next script some file renaming is needed in the data. More details to come.
@@ -38,17 +52,6 @@ The script ```DeltaSpindleExtract.m``` should be run next to export the charater
 
 Additionally, data regarding time-bins & NREM bouts durations will be exported as "Recording_duration.xls", and the delta event counts will be exported as "DeltaCount_split.xls", when the ```DeltaSpindleDetection.m``` script is run.
 
-_**Sharp wave ripple analysis**_ 
-
-The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/OSF/swr_analysys
- 
- Folders:
-- brain_regions: Not bandpassed. Just downsampled to 600 Hz. 
-- sleepstates
-- detections
-
-The sharp wave ripples (SWRs) that has been saved for each rat, as ```oscil_table``` and ```grouped_oscil_table```, can be analysed by running the script ```swr_traces.m```. The script loads the detections and extracts the corresponding traces from the necessary HPC signal. The characteristics of each form of swr is stored as "SWRChara.xls" on separated sheets.
-(Note: The ```p_hpc.mat``` and ```b_hpc.mat``` files can be created by following steps similar to that used to prepare the signals for spindle/delta detection, with the necessary changes. For the ```p_hpc.mat``` dataset, use a bandpass of 90 to 200 Hz, and for ```b_hpc.mat```, use a bandpass of 2 to 20 Hz, on the corresponding HPC datasets.)
 
 # Coding system:
 
