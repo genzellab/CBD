@@ -4,7 +4,7 @@
 _**Data preprocessing:**_ 
   * DownsampleFiles.m : Downsamples channels to 600 Hz. Formerly called 'AdrianDownsampleFiles.m'
 
-  * Downsampling_script_2022.m (Outdated, not used)
+  * ~~Downsampling_script_2022.m~~ (Outdated, not used)
 
 _**Sleep stages analysis:**_ 
   
