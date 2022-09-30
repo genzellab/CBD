@@ -25,6 +25,7 @@ The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/
 Scripts:
 
 For aligning the data:
+
 preprocessing_r_sw: "Cleans" the data by removing artefacts. Filters channel with the frequency band of the event to detect. Example. For HPCpyra it filters between 90-200 Hz. For HPCbelow it filters between 2 and 20 Hz. The data is cleaned by using the ```clean_dataset``` script. It is aligned by using the ```align_dataset``` script. 
 
 
