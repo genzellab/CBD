@@ -20,11 +20,14 @@ The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/
  Folders:
 - _brain_regions_ : Not bandpassed. Just downsampled to 600 Hz. The downsampled data was added to this folder and renamed with the Rat ID number to allow use of for-loops. Important: These channels contain artifacts which are removed later in the pipeline. So they are not "clean". 
 - _sleepstates_ : This folder contains the sleep stages labels from the PCA scorer. The files were renamed with the Rat ID. 
-- _detections_ : Created by Victor. 
+- _detections_ : Created by Victor. Results from running ```detection_sw_r_swr_cswr.m``` which is explained below. 
 
 Scripts:
-clean_dataset(regions, selected_region, results_dir, b, a, rats, thresholds): Creates aligned matrices for a brain region for multiple rodents, as well as sleep states matrices and indices to access unpadded individual signals per rodent.
-Example: clean_dataset('F:\OSF\swr_analysys\brain_regions', 'hpc_pyra', 'results_dir', b, a)
+
+- clean_dataset(regions, selected_region, results_dir, b, a, rats, thresholds): Creates aligned matrices for a brain region for multiple rodents, as well as sleep states matrices and indices to access unpadded individual signals per rodent.
+Example: ```clean_dataset('F:\OSF\swr_analysys\brain_regions', 'hpc_pyra', 'results_dir', b, a)```
+
+- detection_sw_r_swr_cswr.m: Name is self-explainatory. Requires knowing the ripple_threshold and sharpwave_thresholds, which were selected visually using the GUI.  
 
 
 The sharp wave ripples (SWRs) that has been saved for each rat, as ```oscil_table``` and ```grouped_oscil_table```, can be analysed by running the script ```swr_traces.m```. The script loads the detections and extracts the corresponding traces from the necessary HPC signal. The characteristics of each form of swr is stored as "SWRChara.xls" on separated sheets.
