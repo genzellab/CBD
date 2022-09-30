@@ -18,7 +18,7 @@ _**Sharp wave ripple types analysis**_
 The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/OSF/swr_analysys
  
  Folders:
-- _brain_regions_ : Not bandpassed. Just downsampled to 600 Hz. The downsampled data was added to this folder and renamed with the Rat ID number to allow use of for-loops.
+- _brain_regions_ : Not bandpassed. Just downsampled to 600 Hz. The downsampled data was added to this folder and renamed with the Rat ID number to allow use of for-loops. Important: These channels contain artifacts which are removed later in the pipeline. So they are not "clean". 
 - sleepstates
 - detections
 
