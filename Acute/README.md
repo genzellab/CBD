@@ -65,16 +65,11 @@ _Event types:_
 - 6 complex r-swr
 
 ## Pipeline description by Pelin
-```
-specs-flowchart (To generate spectrograms):
-https://docs.google.com/document/d/1KkYj9pP0HtkzjQ-p-1WWALFDSossGnD021djwIOCWSg/edit?usp=sharing
---
-slope-analysis-flowchart:
-https://docs.google.com/document/d/1O0E73VSSKm39skcDfJgUjIiksfCIa07FEhLNptUxXCQ/edit?usp=sharing
---
-HPC-data-flowchart (For generating unfiltered HPC data):
-https://docs.google.com/document/d/112Q030C6ypIyRTSDRgObQNLckRu8VwXpJmjp259GYvA/edit?usp=sharing
---
-32-channel-flowchart (For CSD analysis):
-https://docs.google.com/document/d/1tSe1NFQGqByXRL5D9U-cSSFL-1GHQvqjHtUqIXY5mqI/edit
-```
+
+[specs-flowchart (To generate spectrograms)](https://docs.google.com/document/d/1KkYj9pP0HtkzjQ-p-1WWALFDSossGnD021djwIOCWSg/edit?usp=sharing)
+
+[slope-analysis-flowchart](https://docs.google.com/document/d/1O0E73VSSKm39skcDfJgUjIiksfCIa07FEhLNptUxXCQ/edit?usp=sharing)
+
+[HPC-data-flowchart (For generating unfiltered HPC data)](https://docs.google.com/document/d/1KkYj9pP0HtkzjQ-p-1WWALFDSossGnD021djwIOCWSg/edit?usp=sharing)
+
+[32-channel-flowchart (For CSD analysis)](https://docs.google.com/document/d/1tSe1NFQGqByXRL5D9U-cSSFL-1GHQvqjHtUqIXY5mqI/edit)
