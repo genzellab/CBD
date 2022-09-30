@@ -24,6 +24,10 @@ The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/
 
 Scripts:
 
+For aligning the data:
+preprocessing_r_sw: "Cleans" the data by removing artefacts. Filters channel with the frequency band of the event to detect. Example. For HPCpyra it filters between 90-200 Hz. For HPCbelow it filters between 2 and 20 Hz. The data is cleaned by using the ```clean_dataset``` script. It is aligned by using the ```align_dataset``` script. 
+
+
 - clean_dataset(regions, selected_region, results_dir, b, a, rats, thresholds): Creates aligned matrices for a brain region for multiple rodents, as well as sleep states matrices and indices to access unpadded individual signals per rodent.
 Example: ```clean_dataset('F:\OSF\swr_analysys\brain_regions', 'hpc_pyra', 'results_dir', b, a)```
 
