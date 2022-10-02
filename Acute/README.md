@@ -23,6 +23,8 @@ The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/
 - _detections_ : Created by Victor. Results from running ```detection_sw_r_swr_cswr.m``` which is explained below. 
 - _cleaned_X_: Individual artifact-free signals per rat. HPC signals are filtered. 
 - _processed_data_ : Contains the aligned matrices per brain region. Note: The HPC data was filtered. HPC pyra (90-200Hz) and HPCbelow (2-20Hz).
+- _unfiltered_data_: Contains: processed_data_unfiltered, cleaned_HPCX_unfiltered, detections_only_unfiltered (It contains the GC unfiltered files per animal. Note: the event types are not split.) 
+
 
 Scripts:
 
