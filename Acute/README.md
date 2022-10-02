@@ -21,6 +21,7 @@ The data was rearranged by Victor and can be found in the Sri Lanka computer:F:/
 - _brain_regions_ : Not bandpassed. Just downsampled to 600 Hz. The downsampled data was added to this folder and renamed with the Rat ID number to allow use of for-loops. Important: These channels contain artifacts which are removed later in the pipeline. So they are not "clean". 
 - _sleepstates_ : This folder contains the sleep stages labels from the PCA scorer. The files were renamed with the Rat ID. 
 - _detections_ : Created by Victor. Results from running ```detection_sw_r_swr_cswr.m``` which is explained below. 
+- _processed_data_ : Contains the aligned matrices per brain region. 
 
 Scripts:
 
