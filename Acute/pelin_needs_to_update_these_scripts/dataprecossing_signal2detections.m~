@@ -30,7 +30,6 @@ cd('/mnt/genzel/Rat/OS_CBD_analysis/acutes/unfiltered_data/processed_data_unfilt
     load('processed_HPCpyra.mat');
     cd ..
 %     cd detections_only
-    cd('/home/adrian/Documents/CBD_acutes/detections_only')
     
     waveforms=[];
     for i=1:size(grouped_oscil_table,1)
@@ -42,14 +41,11 @@ cd('/mnt/genzel/Rat/OS_CBD_analysis/acutes/unfiltered_data/processed_data_unfilt
     eval(sprintf('%s',temp_var));
     
     %% HPCbelo
-%     cd /Users/pelinozsezer/Documents/Science/Radboud/CBD-Project/binned-data/processed_data
-cd('/mnt/genzel/Rat/OS_CBD_analysis/acutes/unfiltered_data/processed_data_unfiltered')
-
-load('processed_HPCbelo.mat');
+    cd /Users/pelinozsezer/Documents/Science/Radboud/CBD-Project/binned-data/processed_data
+    load('processed_HPCbelo.mat');
     cd ..
-%    cd detections_only
-        cd('/home/adrian/Documents/CBD_acutes/detections_only')
-
+    cd detections_only
+    
     waveforms=[];
     for i=1:size(grouped_oscil_table,1)
         x=signals(idx,round(table2array(grouped_oscil_table(i,4)))-1800:...
