@@ -146,8 +146,8 @@ for k=[1 2 7 8] % For each form
     %%
     
     %Variables declared to store characteristics
-    xd={};yd={};zd={};qd={};ld={};pd={};
-    xcd={};ycd={};zcd={};qcd={};lcd={};pcd={};
+    xd={};yd={};zd={};qd={};ld={};pd={};   x_ent={}; x_spent={};
+    xcd={};ycd={};zcd={};qcd={};lcd={};pcd={};  x_entcd={}; x_spentcd={};
     
     figure
     [xd{k},yd{k},zd{k},~,~,qd{k},ld{k},pd{k},~,~,~,...
@@ -155,12 +155,29 @@ for k=[1 2 7 8] % For each form
         =specsHist(d_v,d_c,0,1); % Compares histograms per features between treatments. Per event type.
     sgtitle(['Form ',num2str(k)])
     
+    x_ent{k}=cellfun(@entropy,d_v); 
+    x_entcd{k}=cellfun(@entropy,d_c); 
+    if k==1
+        x_spent{k}=cellfun(@(x) spectral_entropy(x,2,20,fn) , d_v);
+        x_spentcd{k}=cellfun(@(x) spectral_entropy(x,2,20,fn) , d_c);
+    else
+        x_spent{k}=cellfun(@(x) spectral_entropy(x,100,300,fn) , d_v);
+        x_spentcd{k}=cellfun(@(x) spectral_entropy(x,100,300,fn) , d_c);
+    end
+    
     if (k==1)  % For Form 1 (Check characteristics in Pyramidal, even if there is no event.)
         figure
         [xd1{k},yd1{k},zd1{k},~,~,qd1{k},ld1{k},pd1{k},~,~,~,...
             xcd1{k},ycd1{k},zcd1{k},~,~,qcd1{k},lcd1{k},pcd1{k},~]...
             =specsHist(d_v_1,d_c_1,0,1);
         sgtitle(['Form ',num2str(k),' Pyramidal'])
+        
+        x_ent1{k}=cellfun(@entropy,d_v_1); 
+        x_entcd1{k}=cellfun(@entropy,d_c_1); 
+        x_spent1{k}=cellfun(@(x) spectral_entropy(x,100,300,fn) , d_v_1);
+        x_spentcd1{k}=cellfun(@(x) spectral_entropy(x,100,300,fn) , d_c_1);
+        
+        
         fxd1={};
         %VEH
         fxd1{1} = xd1{k}';
@@ -169,29 +186,34 @@ for k=[1 2 7 8] % For each form
         fxd1{4} = ld1{k}';
         fxd1{5} = qd1{k}';
         fxd1{6} = pd1{k}';
+        fxd1{7} = x_ent1{k}';
+        fxd1{8} = x_spent1{k}';
+        
         %CBD
-        fxd1{7} = xcd1{k}';
-        fxd1{8} = ycd1{k}';
-        fxd1{9} = zcd1{k}';
-        fxd1{10} = lcd1{k}';
-        fxd1{11} = qcd1{k}';
-        fxd1{12} = pcd1{k}';
+        fxd1{9} = xcd1{k}';
+        fxd1{10} = ycd1{k}';
+        fxd1{11} = zcd1{k}';
+        fxd1{12} = lcd1{k}';
+        fxd1{13} = qcd1{k}';
+        fxd1{14} = pcd1{k}';
+        fxd1{15} = x_entcd1{k}';
+        fxd1{16} = x_spentcd1{k}';
         
         maximum = max(cellfun(@length, fxd1));
-        for i=1:12
+        for i=1:16
             fxd1{i} = [fxd1{i};zeros(maximum-length(fxd1{i}),1)*nan];  % add nans at the end
         end
         
         cd '/home/adrian/Documents/CBD_acutes/Chara'
         
-        TT=table(fxd1{1},fxd1{2},fxd1{3},fxd1{4},fxd1{5},fxd1{6},...
-            fxd1{7},fxd1{8},fxd1{9},fxd1{10},fxd1{11},fxd1{12});
+        TT=table(fxd1{1},fxd1{2},fxd1{3},fxd1{4},fxd1{5},fxd1{6},fxd1{7},fxd1{8},...
+            fxd1{9},fxd1{10},fxd1{11},fxd1{12},fxd1{13},fxd1{14},fxd1{15},fxd1{16});
         TT.Properties.VariableNames={'Instantaneous Frequencies (Veh)','Average Frequencies (Veh)',...
             'Amplitude (\muV) (Veh)','Area under the curve (Veh)','Duration(ms) (Veh)',...
-            'Peak-to-peak amplitude (\muV) (Veh)',...
+            'Peak-to-peak amplitude (\muV) (Veh)', 'Entropy (Veh)', 'Spectral-Entropy (Veh)',   ...
             'Instantaneous Frequencies (CBD)','Average Frequencies (CBD)',...
             'Amplitude(\muV) (CBD)','Area under the curve (CBD)','Duration(ms) (CBD)'...
-            'Peak-to-peak amplitude(\muV) (CBD)'};
+            'Peak-to-peak amplitude(\muV) (CBD)', 'Entropy (CBD)', 'Spectral-Entropy (CBD)'};
         writetable(TT,'SWRChara.xls','Sheet',['Form',num2str(k),' pyr.'])
         
     else % Other forms except Form 1 (SW alone)
@@ -200,6 +222,13 @@ for k=[1 2 7 8] % For each form
             xcd2{k},ycd2{k},zcd2{k},~,~,qcd2{k},lcd2{k},pcd2{k},~]...
             =specsHist(d_v_2,d_c_2,0,1);
         sgtitle(['Form ',num2str(k),' Below'])
+        
+        x_ent2{k}=cellfun(@entropy,d_v_2); 
+        x_entcd2{k}=cellfun(@entropy,d_c_2); 
+        x_spent2{k}=cellfun(@(x) spectral_entropy(x,2,20,fn) , d_v_2);
+        x_spentcd2{k}=cellfun(@(x) spectral_entropy(x,2,20,fn) , d_c_2);
+        
+        
         fxd2={};
         fxd2{1} = xd2{k}';
         fxd2{2} = yd2{k}';
@@ -207,28 +236,34 @@ for k=[1 2 7 8] % For each form
         fxd2{4} = ld2{k}';
         fxd2{5} = qd2{k}';
         fxd2{6} = pd2{k}';
-        fxd2{7} = xcd2{k}';
-        fxd2{8} = ycd2{k}';
-        fxd2{9} = zcd2{k}';
-        fxd2{10} = lcd2{k}';
-        fxd2{11} = qcd2{k}';
-        fxd2{12} = pcd2{k}';
+        fxd2{7} = x_ent2{k}';
+        fxd2{8} = x_spent2{k}';
+        
+        %CBD
+        fxd2{9} = xcd2{k}';
+        fxd2{10} = ycd2{k}';
+        fxd2{11} = zcd2{k}';
+        fxd2{12} = lcd2{k}';
+        fxd2{13} = qcd2{k}';
+        fxd2{14} = pcd2{k}';
+        fxd2{15} = x_entcd2{k}';
+        fxd2{16} = x_spentcd2{k}';        
         
         maximum = max(cellfun(@length, fxd2));
-        for i=1:12
+        for i=1:16
             fxd2{i} = [fxd2{i};zeros(maximum-length(fxd2{i}),1)*nan];  % add nans at the end
         end
         
         cd '/home/adrian/Documents/CBD_acutes/Chara'
         
-        TT=table(fxd2{1},fxd2{2},fxd2{3},fxd2{4},fxd2{5},fxd2{6},...
-            fxd2{7},fxd2{8},fxd2{9},fxd2{10},fxd2{11},fxd2{12});
+        TT=table(fxd2{1},fxd2{2},fxd2{3},fxd2{4},fxd2{5},fxd2{6},fxd2{7},fxd2{8}, ...
+            fxd2{9},fxd2{10},fxd2{11},fxd2{12},fxd2{13},fxd2{14},fxd2{15},fxd2{16});
         TT.Properties.VariableNames={'Instantaneous Frequencies (Veh)','Average Frequencies (Veh)',...
             'Amplitude (\muV) (Veh)','Area under the curve (Veh)','Duration(ms) (Veh)',...
-            'Peak-to-peak amplitude (\muV) (Veh)',...
+            'Peak-to-peak amplitude (\muV) (Veh)','Entropy (Veh)', 'Spectral-Entropy (Veh)',...
             'Instantaneous Frequencies (CBD)','Average Frequencies (CBD)',...
             'Amplitude(\muV) (CBD)','Area under the curve (CBD)','Duration(ms) (CBD)'...
-            'Peak-to-peak amplitude(\muV) (CBD)'};
+            'Peak-to-peak amplitude(\muV) (CBD)','Entropy (CBD)', 'Spectral-Entropy (CBD)'};
         writetable(TT,'SWRChara.xls','Sheet',['Form',num2str(k),' bel.'])
         
         
@@ -241,13 +276,19 @@ for k=[1 2 7 8] % For each form
     fxd{4} = ld{k}';
     fxd{5} = qd{k}';
     fxd{6} = pd{k}';
+    fxd{7} = x_ent{k}';
+    fxd{8} = x_spent{k}';    
     
-    fxd{7} = xcd{k}';
-    fxd{8} = ycd{k}';
-    fxd{9} = zcd{k}';
-    fxd{10} = lcd{k}';
-    fxd{11} = qcd{k}';
-    fxd{12} = pcd{k}';
+    %CBD
+    fxd{9} = xcd{k}';
+    fxd{10} = ycd{k}';
+    fxd{11} = zcd{k}';
+    fxd{12} = lcd{k}';
+    fxd{13} = qcd{k}';
+    fxd{14} = pcd{k}';
+    fxd{15} = x_entcd{k}';
+    fxd{16} = x_spentcd{k}';
+    
     % x,xc - Instantaneous Frequencies
     % y,yc - Average frequency
     % z,zc - Amplitude
@@ -255,19 +296,19 @@ for k=[1 2 7 8] % For each form
     % q,qc - Duration
     % p,pc - Peak-to-peak distance
     maximum = max(cellfun(@length, fxd));
-    for i=1:12
+    for i=1:16
         fxd{i} = [fxd{i};zeros(maximum-length(fxd{i}),1)*nan];  % add nans at the end
     end
     
     cd '/home/adrian/Documents/CBD_acutes/Chara'
     
-    TT=table(fxd{1},fxd{2},fxd{3},fxd{4},fxd{5},fxd{6},...
-        fxd{7},fxd{8},fxd{9},fxd{10},fxd{11},fxd{12});
+    TT=table(fxd{1},fxd{2},fxd{3},fxd{4},fxd{5},fxd{6},fxd{7},fxd{8},...
+        fxd{9},fxd{10},fxd{11},fxd{12},fxd{13},fxd{14},fxd{15},fxd{16});
     TT.Properties.VariableNames={'Instantaneous Frequencies (Veh)','Average Frequencies (Veh)',...
         'Amplitude (\muV) (Veh)','Area under the curve (Veh)','Duration(ms) (Veh)',...
-        'Peak-to-peak amplitude (\muV) (Veh)',...
+        'Peak-to-peak amplitude (\muV) (Veh)', 'Entropy (Veh)', 'Spectral-Entropy (Veh)',...
         'Instantaneous Frequencies (CBD)','Average Frequencies (CBD)',...
         'Amplitude(\muV) (CBD)','Area under the curve (CBD)','Duration(ms) (CBD)'...
-        'Peak-to-peak amplitude(\muV) (CBD)'};
+        'Peak-to-peak amplitude(\muV) (CBD)','Entropy (CBD)', 'Spectral-Entropy (CBD)'};
     writetable(TT,'SWRChara.xls','Sheet',['Form',num2str(k)]) 
 end
