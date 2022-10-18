@@ -77,19 +77,13 @@ _Sleep stages:_
  1 corresponds to REM-like and 2 to NREM-like.
 
 _Event types:_
-- 1 single sw
-- 2 single r
-- 3 simple sw-swr
-- 4 simple r-swr
-- 5 complex sw-swr
-- 6 complex r-swr
+- 1 single SW
+- 2 single Ripple
+- 3 simple SW-SWR
+- 4 simple Ripple-SWR
+- 5 complex SW-SWR
+- 6 complex Ripple-SWR
 
 ## Pipeline description by Pelin
 
-[specs-flowchart (To generate spectrograms)](https://docs.google.com/document/d/1KkYj9pP0HtkzjQ-p-1WWALFDSossGnD021djwIOCWSg/edit?usp=sharing)
 
-[slope-analysis-flowchart](https://docs.google.com/document/d/1O0E73VSSKm39skcDfJgUjIiksfCIa07FEhLNptUxXCQ/edit?usp=sharing)
-
-[HPC-data-flowchart (For generating unfiltered HPC data)](https://docs.google.com/document/d/112Q030C6ypIyRTSDRgObQNLckRu8VwXpJmjp259GYvA/edit)
-
-[32-channel-flowchart (For CSD analysis)](https://docs.google.com/document/d/1tSe1NFQGqByXRL5D9U-cSSFL-1GHQvqjHtUqIXY5mqI/edit)
