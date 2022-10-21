@@ -1,7 +1,5 @@
 function [] = clean_dataset_spec_HPC(regions, selected_region, results_dir, rats, thresholds)
-% Creates aligned matrices for an specific brain region for multiple
-% rodents, as well as sleep states matrices and indices to access unpadded
-% individual signals per rodent
+% Removes artifact in the data.
 % 
 % Input:
 %
@@ -57,7 +55,7 @@ function [] = clean_dataset_spec_HPC(regions, selected_region, results_dir, rats
         TOT = sum(cat(2, rat_regions_abs{:}), 2); 
 
         % Artifacts
-        threshold = thresholds(i); %Visual threshold 
+        threshold = thresholds(i); % visual threshold 
         outliers = false(L,1);
         index = 1;
         while index<L
