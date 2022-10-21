@@ -83,7 +83,3 @@ _Event types:_
 - 4 simple Ripple-SWR
 - 5 complex SW-SWR
 - 6 complex Ripple-SWR
-
-## Pipeline description by Pelin
-
-
