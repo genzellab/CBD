@@ -1,4 +1,4 @@
-:exclamation: **Requirements**: Matlab Signal Processing Toolbox.
+:pushpin: **Requirements**: Matlab Signal Processing Toolbox.
 
 ------------------------------------
 
