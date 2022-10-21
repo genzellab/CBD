@@ -17,3 +17,6 @@
 - **remove_events_with_nan32.m**:
 - **dataprocessing_eventtype_rat_HPC32.m**:
 - **data_32by3601.m**:
+
+------------------------------------
+*Notes regarding the data of rats:*
