@@ -1,4 +1,4 @@
-:spark: # Data Generation for CSD Analysis :spark:
+:sparkles: # Data Generation for CSD Analysis :sparkles:
 :pushpin: **Requirements**: Matlab Signal Processing Toolbox.
 
 ------------------------------------
