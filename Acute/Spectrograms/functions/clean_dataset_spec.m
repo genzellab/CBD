@@ -1,5 +1,7 @@
-function [] = clean_dataset_spec_HPC(regions, selected_region, results_dir, rats, thresholds)
-% Removes artifact in the data.
+function [] = clean_dataset_pelin(regions, selected_region, results_dir, rats, thresholds)
+% Creates aligned matrices for an specific brain region for multiple
+% rodents, as well as sleep states matrices and indices to access unpadded
+% individual signals per rodent
 % 
 % Input:
 %
@@ -27,14 +29,17 @@ function [] = clean_dataset_spec_HPC(regions, selected_region, results_dir, rats
     if ~exist('rats','var')
         rats = [2, 3, 4, 5, 9, 10, 11, 201, 203, 204, 205, 206, 207, 209, 210, 211, 212, 213, 214];
     end
+    if ~exist('thresholds','var')
+        thresholds = [3450, 4000, 5000, 4500, 4500, 4500, 4500, 5000, 5500, 5000, 5500, 5000, 6000, 4500, 4500, 4500, 4500, 4500, 4500];
+    end
 
     % Get all subfolders of regions directory
     regions_dir = dir(regions);
     regions_subdirs = regions_dir([regions_dir(:).isdir]);
     regions_subdirs = regions_subdirs(~ismember({regions_subdirs(:).name},{'.','..'}));
     available_regions = {regions_subdirs.name};
-    hpc_regions = contains(available_regions, 'HPC');
-    pfc_regions = contains(available_regions, 'PFC');
+    hpc_regions = contains(available_regions, 'hpc');
+    pfc_regions = contains(available_regions, 'pfc');
 
     num_of_regions = length(available_regions);
     num_of_rats = length(rats);
@@ -52,10 +57,10 @@ function [] = clean_dataset_spec_HPC(regions, selected_region, results_dir, rats
             rat_regions{j} = rat_region(1:L);
         end
         rat_regions_abs = cellfun(@abs, rat_regions, 'UniformOutput', false);
-        TOT = sum(cat(2, rat_regions_abs{:}), 2); 
+        TOT = sum(cat(2, rat_regions_abs{:}), 2);
 
         % Artifacts
-        threshold = thresholds(i); % visual threshold 
+        threshold = thresholds(i); %Visual threshold 
         outliers = false(L,1);
         index = 1;
         while index<L
@@ -74,9 +79,9 @@ function [] = clean_dataset_spec_HPC(regions, selected_region, results_dir, rats
         j = ismember(available_regions, selected_region);
         rat_region = rat_regions{j};
 
-        if contains(selected_region, 'hpc') || contains(selected_region, 'HPC')
+        if contains(selected_region, 'hpc')
             rat_region(outliers) = mean(cellfun(@median, rat_regions(hpc_regions)));
-        elseif contains(selected_region, 'pfc') || contains(selected_region, 'PFC')
+        elseif contains(selected_region, 'pfc')
             rat_region(outliers) = mean(cellfun(@median, rat_regions(pfc_regions)));
         else
             rat_region(outliers) = 0;
