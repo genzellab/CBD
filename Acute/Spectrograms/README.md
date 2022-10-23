@@ -1,5 +1,4 @@
 # **:sparkles: Spectrograms :sparkles:**
----
 
 :pushpin: Makes use of functions from the [FieldTrip](https://github.com/fieldtrip/fieldtrip), [OpenEphys](https://github.com/open-ephys/analysis-tools), and 	[ADRITOOLS](https://github.com/Aleman-Z/ADRITOOLS).  
 
