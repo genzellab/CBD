@@ -11,7 +11,7 @@ cd('/home/adrian/Documents/CBD_acutes/Chara')
 %Suggestion: For SW, it is better to use AUC with respect to the ripple
 %duration. 
 clear x1
-T_SW = readtable('SWRChara.xls','Sheet','Form2');
+T_SW = readtable('SWRChara.xls','Sheet','Form1');
 %%
 SW_Amp_CBD=T_SW(:,12); %AUC
 SW_Dur_CBD=T_SW(:,13);
@@ -25,26 +25,26 @@ SW_Dur_CBD=SW_Dur_CBD(SW_Dur_CBD<=prctile(SW_Dur_CBD,95))
 %% SharpWaves
 
 %scatter(SW_Dur_CBD,SW_Amp_CBD,'MarkerEdgeColor','r','MarkerEdgeAlpha',0.8)
-h(4)=errorbar(nanmedian(SW_Dur_CBD),nanmedian(SW_Amp_CBD),sem(SW_Amp_CBD)*1.96,sem(SW_Amp_CBD)*1.96,sem(SW_Dur_CBD)*1.96,sem(SW_Dur_CBD)*1.96,'o','Color','r','MarkerSize',20,"MarkerFaceColor",[0 1 0]);
-
-xlabel('Duration (ms)')
-ylabel('AUC')
- set(gca,'xscale','log')
- set(gca,'yscale','log')
-
-hold on
-    if exist('x1','var')
-        xlong=linspace(min(x1),max(x1),1000);
-    else
-        xlong=SW_Dur_CBD;
-    end
-[p,curvefit,gof,Yp2]=fitter(SW_Dur_CBD,SW_Amp_CBD,xlong);
- plot(xlong, Yp2, '-r' ,'DisplayName', 'Fit','LineWidth',5 );
+% h(4)=errorbar(nanmedian(SW_Dur_CBD),nanmedian(SW_Amp_CBD),sem(SW_Amp_CBD)*1.96,sem(SW_Amp_CBD)*1.96,sem(SW_Dur_CBD)*1.96,sem(SW_Dur_CBD)*1.96,'o','Color','r','MarkerSize',20,"MarkerFaceColor",[0 1 0]);
+% 
+% xlabel('Duration (ms)')
+% ylabel('AUC')
+%  set(gca,'xscale','log')
+%  set(gca,'yscale','log')
+% 
+% hold on
+%     if exist('x1','var')
+%         xlong=linspace(min(x1),max(x1),1000);
+%     else
+%         xlong=SW_Dur_CBD;
+%     end
+% [p,curvefit,gof,Yp2]=fitter(SW_Dur_CBD,SW_Amp_CBD,xlong);
+%  plot(xlong, Yp2, '-r' ,'DisplayName', 'Fit','LineWidth',5 );
 
  %%
  %% SWR Sharp wave
 
-T_SWRSW = readtable('SWRChara.xls','Sheet','Form4');
+T_SWRSW = readtable('SWRChara.xls','Sheet','Form3');
 
 SWRSW_Amp_CBD=T_SWRSW(:,12); %AUC
 SWRSW_Dur_CBD=T_SWRSW(:,13);
@@ -57,29 +57,29 @@ SWRSW_Dur_CBD=SWRSW_Dur_CBD(SWRSW_Dur_CBD<=prctile(SWRSW_Dur_CBD,95))
 
 %%
 %scatter(SWRSW_Dur_CBD,SWRSW_Amp_CBD,'MarkerEdgeColor',"#7E2F8E",'MarkerEdgeAlpha',0.8)
-h(5)=errorbar(nanmedian(SWRSW_Dur_CBD),nanmedian(SWRSW_Amp_CBD),sem(SWRSW_Amp_CBD)*1.96,sem(SWRSW_Amp_CBD)*1.96,sem(SWRSW_Dur_CBD)*1.96,sem(SWRSW_Dur_CBD)*1.96,'o','Color',"#7E2F8E",'MarkerSize',20,"MarkerFaceColor",[0 1 0])
-
-xlabel('Duration (ms)')
-ylabel('AUC')
- set(gca,'xscale','log')
- set(gca,'yscale','log')
- 
-    if exist('x1','var')
-        xlong=linspace(min(x1),max(x1),1000);
-    else
-        xlong=SWRSW_Dur_CBD;
-    end 
- 
- [p,curvefit,gof, Yp2]=fitter(SWRSW_Dur_CBD,SWRSW_Amp_CBD,xlong);
-hold on
-  plot(xlong, Yp2,'Color',"#7E2F8E",'DisplayName', 'Fit','LineWidth',5 );
+% h(5)=errorbar(nanmedian(SWRSW_Dur_CBD),nanmedian(SWRSW_Amp_CBD),sem(SWRSW_Amp_CBD)*1.96,sem(SWRSW_Amp_CBD)*1.96,sem(SWRSW_Dur_CBD)*1.96,sem(SWRSW_Dur_CBD)*1.96,'o','Color',"#7E2F8E",'MarkerSize',20,"MarkerFaceColor",[0 1 0])
+% 
+% xlabel('Duration (ms)')
+% ylabel('AUC')
+%  set(gca,'xscale','log')
+%  set(gca,'yscale','log')
+%  
+%     if exist('x1','var')
+%         xlong=linspace(min(x1),max(x1),1000);
+%     else
+%         xlong=SWRSW_Dur_CBD;
+%     end 
+%  
+%  [p,curvefit,gof, Yp2]=fitter(SWRSW_Dur_CBD,SWRSW_Amp_CBD,xlong);
+% hold on
+%   plot(xlong, Yp2,'Color',"#7E2F8E",'DisplayName', 'Fit','LineWidth',5 );
  
  
 %%
 
  %% CSWR SW
 
-T_cSWRSW = readtable('SWRChara.xls','Sheet','Form6');
+T_cSWRSW = readtable('SWRChara.xls','Sheet','Form5');
 
 cSWRSW_Amp_CBD=T_cSWRSW(:,12); %AUC
 cSWRSW_Dur_CBD=T_cSWRSW(:,13);
@@ -92,23 +92,23 @@ cSWRSW_Dur_CBD=cSWRSW_Dur_CBD(cSWRSW_Dur_CBD<=prctile(cSWRSW_Dur_CBD,95))
 
 %%
 %scatter(cSWRSW_Dur_CBD,cSWRSW_Amp_CBD,'MarkerEdgeColor',"#EDB120",'MarkerEdgeAlpha',0.8)
-h(6)=errorbar(nanmedian(cSWRSW_Dur_CBD),nanmedian(cSWRSW_Amp_CBD),sem(cSWRSW_Amp_CBD)*1.96,sem(cSWRSW_Amp_CBD)*1.96,sem(cSWRSW_Dur_CBD)*1.96,sem(cSWRSW_Dur_CBD)*1.96,'o','Color',"#EDB120",'MarkerSize',20,"MarkerFaceColor",[0 1 0])
-
-xlabel('Duration (ms)')
-ylabel('AUC')
- set(gca,'xscale','log')
- set(gca,'yscale','log')
-
-
-    if exist('x1','var')
-        xlong=linspace(min(x1),max(x1),1000);
-    else
-        xlong=cSWRSW_Dur_CBD
-    end
- 
- [p,curvefit,gof,Yp2]=fitter(cSWRSW_Dur_CBD,cSWRSW_Amp_CBD,xlong);
-hold on
-  plot(xlong, Yp2,'Color',"#EDB120",'DisplayName', 'Fit','LineWidth',5 );
+% h(6)=errorbar(nanmedian(cSWRSW_Dur_CBD),nanmedian(cSWRSW_Amp_CBD),sem(cSWRSW_Amp_CBD)*1.96,sem(cSWRSW_Amp_CBD)*1.96,sem(cSWRSW_Dur_CBD)*1.96,sem(cSWRSW_Dur_CBD)*1.96,'o','Color',"#EDB120",'MarkerSize',20,"MarkerFaceColor",[0 1 0])
+% 
+% xlabel('Duration (ms)')
+% ylabel('AUC')
+%  set(gca,'xscale','log')
+%  set(gca,'yscale','log')
+% 
+% 
+%     if exist('x1','var')
+%         xlong=linspace(min(x1),max(x1),1000);
+%     else
+%         xlong=cSWRSW_Dur_CBD
+%     end
+%  
+%  [p,curvefit,gof,Yp2]=fitter(cSWRSW_Dur_CBD,cSWRSW_Amp_CBD,xlong);
+% hold on
+%   plot(xlong, Yp2,'Color',"#EDB120",'DisplayName', 'Fit','LineWidth',5 );
 % text(max(cSWRSW_Dur_Veh),max(Yp2),' cSWR SW')
 %%
 
@@ -146,8 +146,14 @@ Yp2 = 10.^(y_est);
 % hold off
 
 
+
 %
-plot(x1, Yp2, '-k', 'DisplayName', 'Fit');
+plot(x1, Yp2, '-g', 'DisplayName', 'Fit');
+
+xlabel('Duration (ms)')
+ylabel('AUC')
+ set(gca,'xscale','log')
+ set(gca,'yscale','log')
 xo
 uistack(h(1),'top');
 uistack(h(2),'top');
