@@ -11,7 +11,7 @@ cd('/home/adrian/Documents/CBD_acutes/Chara')
 %Suggestion: For SW, it is better to use AUC with respect to the ripple
 %duration. 
 clear x1
-T_SW = readtable('SWRChara.xls','Sheet','Form2');% SW
+T_SW = readtable('SWRChara.xls','Sheet','Form1');% SW
 %%
 SW_Amp_Veh=T_SW(:,4); %AUC
 SW_Dur_Veh=T_SW(:,5);
@@ -84,7 +84,7 @@ addpath(genpath('/home/adrian/Downloads/github_repo(1)'))
 %xo
  %% SWR Sharp wave
 
-T_SWRSW = readtable('SWRChara.xls','Sheet','Form4');
+T_SWRSW = readtable('SWRChara.xls','Sheet','Form3');
 
 SWRSW_Amp_Veh=T_SWRSW(:,4); %AUC
 SWRSW_Dur_Veh=T_SWRSW(:,5);
@@ -123,7 +123,7 @@ hold on
 
  %% CSWR SW
 
-T_cSWRSW = readtable('SWRChara.xls','Sheet','Form6');
+T_cSWRSW = readtable('SWRChara.xls','Sheet','Form5');
 
 cSWRSW_Amp_Veh=T_cSWRSW(:,4); %AUC
 cSWRSW_Dur_Veh=T_cSWRSW(:,5);
@@ -166,6 +166,14 @@ hold on
 
 %%
 xo
+
+% XLim: [1 528.3333]
+% YLim: [0.7261 176.2657]
+xlim([1 528.3333])
+ylim([0.7261 176.2657])
+
+% xlim([50 1000])
+% ylim( [0.7575 14.8992]) 
 %%
 f=gcf;
 set(f,'Units','centimeters')
@@ -195,7 +203,7 @@ legend('SW','SWR SW', 'CSWR SW')
 
 % legend('SW','Ripples','SWR SW', 'SWR Ripples','CSWR SW','CSWR Ripples' )
 %%
-filename='AUC_AUC_SWR&cSWR4';
+filename='FigureA_contours2';
 printing_image(filename)
 print('-painters',f,filename,'-dpdf');%'-r0'
 

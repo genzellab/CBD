@@ -156,6 +156,9 @@ hold on
 
 %%
  xo
+
+xlim([0 1000])
+ylim( [0.7575 14.8992])  
 % legend('SW','Ripples','SWR SW', 'SWR Ripples','CSWR SW','CSWR Ripples' )
 %%
 
