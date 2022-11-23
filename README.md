@@ -13,6 +13,8 @@ Repository for CBD project.
 - Adrian Aleman-Zapata
 - Tugdual Adam
 - Victor Canales Lima
+- Abdelrahman Rayan
+- Melisa Maidana Capitan
 - Linda Tomy
 - Swatantra Dhara
 - Kopal Agarwal
