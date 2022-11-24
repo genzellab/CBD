@@ -11,10 +11,10 @@ cd('/home/adrian/Documents/CBD_acutes/Chara')
 %Suggestion: For SW, it is better to use AUC with respect to the ripple
 %duration. 
 clear x1
-T_SW = readtable('SWRChara.xls','Sheet','Form2');
+T_SW = readtable('SWRChara.xls','Sheet','Form2');% SW
 %%
-SW_Amp_Veh=T_SW(:,4); %AUC
-SW_Dur_Veh=T_SW(:,5);
+SW_Amp_Veh=T_SW(:,12); %AUC
+SW_Dur_Veh=T_SW(:,13);
 
 SW_Amp_Veh=table2array(SW_Amp_Veh);
 SW_Dur_Veh=table2array(SW_Dur_Veh);
@@ -24,11 +24,15 @@ SW_Dur_Veh=SW_Dur_Veh(SW_Dur_Veh<=prctile(SW_Dur_Veh,95))
 
 %% SharpWaves
 
-% h(4)=scatter(SW_Dur_Veh,SW_Amp_Veh,'MarkerEdgeColor','r','MarkerEdgeAlpha',0.8)
-% h(4)=errorbar(nanmedian(SW_Dur_Veh),nanmedian(SW_Amp_Veh),nanstd(SW_Dur_Veh)/2,nanstd(SW_Dur_Veh)/2,nanstd(SW_Amp_Veh)/2,nanstd(SW_Amp_Veh)/2,'o','Color','r','MarkerSize',20)
-h(1)=errorbar(nanmedian(SW_Dur_Veh),nanmedian(SW_Amp_Veh),sem(SW_Amp_Veh)*1.96,sem(SW_Amp_Veh)*1.96,sem(SW_Dur_Veh)*1.96,sem(SW_Dur_Veh)*1.96,'o','Color','r','MarkerSize',20);
+%h(1)=scatter(SW_Dur_Veh,SW_Amp_Veh,'MarkerEdgeColor','r','MarkerEdgeAlpha',0.8)
+p=gkde2_contour([SW_Dur_Veh SW_Amp_Veh]);
+contour(p.x,p.y,p.pdf,3,"red");
 
-xlabel('Duration (ms)')
+% h(4)=errorbar(nanmedian(SW_Dur_Veh),nanmedian(SW_Amp_Veh),nanstd(SW_Dur_Veh)/2,nanstd(SW_Dur_Veh)/2,nanstd(SW_Amp_Veh)/2,nanstd(SW_Amp_Veh)/2,'o','Color','r','MarkerSize',20)
+
+%h(1)=errorbar(nanmedian(SW_Dur_Veh),nanmedian(SW_Amp_Veh),sem(SW_Amp_Veh)*1.96,sem(SW_Amp_Veh)*1.96,sem(SW_Dur_Veh)*1.96,sem(SW_Dur_Veh)*1.96,'o','Color','r'); %,'MarkerSize',20
+
+xlabel('Duration')
 ylabel('AUC')
  set(gca,'xscale','log')
  set(gca,'yscale','log')
@@ -40,16 +44,50 @@ hold on
         xlong=SW_Dur_Veh
     end
 [p,curvefit,gof,Yp2]=fitter(SW_Dur_Veh,SW_Amp_Veh,xlong);
- plot(xlong, Yp2, '-r' ,'DisplayName', 'Fit','LineWidth',5 );
+ %plot(xlong, Yp2, '-r' ,'DisplayName', 'Fit' );%'LineWidth',5
 % text(max(SW_Dur_Veh),max(Yp2),' SW')
+%%
+%% Figure settings
+% f=gcf;
+% set(f,'Units','centimeters')
+% % h.Position(1)=0;
+% % h.Position(2)=0;
+% f.Position(3)=3.5;
+% f.Position(4)=3.5;
+% f.PaperSize=[3.55 3.55]
+% %xo
+% ax=gca;
+% ax.YColor=[0 0 0];
+% ax.XColor=[0 0 0];
+% ax.FontSize=2;
+% 
+% ax.Legend.Units='centimeters';
+% ax.Legend.Position(1)=0
+% ax.Legend.Position(2)=0
+% ax.Legend.Position(3)=0.2
+% ax.Legend.Position(4)=0.2
+%xo
+%%
+filename='AUC_AUC_SWR&cSWR3';
+% print('-painters',f,filename,'-dpdf');%'-r0'
+%%
+set(gca, 'Children', flipud(get(gca, 'Children')) )
+%%
+hLegend = findobj(gcf, 'Type', 'Legend');
 
- %%
+addpath(genpath('/home/adrian/Downloads/github_repo(1)'))
+% legendflex(gca,{'Fit all SW Veh','Fit all SW CBD','Fit all Ripple Veh','Fit all Ripple CBD'},'xscale',0.25)
+% legendflex(gca,{'Fit SWR CBD','SWR CBD','Fit SWR Veh','SWR Veh'},'xscale',0.25)
+% legendflex(gca,{'Fit SWR CBD','Fit SWR Veh'},'xscale',0.25)
+% legendflex(gca,{'Fit cSWR Veh','Fit cSWR CBD'},'xscale',0.25)
+% legendflex(gca,{'Fit Veh (SWR+cSWR)','Fit CBD (SWR+cSWR)'},'xscale',0.25)
+%xo
  %% SWR Sharp wave
 
 T_SWRSW = readtable('SWRChara.xls','Sheet','Form4');
 
-SWRSW_Amp_Veh=T_SWRSW(:,4); %AUC
-SWRSW_Dur_Veh=T_SWRSW(:,5);
+SWRSW_Amp_Veh=T_SWRSW(:,12); %AUC
+SWRSW_Dur_Veh=T_SWRSW(:,13);
 
 SWRSW_Amp_Veh=table2array(SWRSW_Amp_Veh);
 SWRSW_Dur_Veh=table2array(SWRSW_Dur_Veh);
@@ -59,11 +97,14 @@ SWRSW_Amp_Veh=SWRSW_Amp_Veh(SWRSW_Dur_Veh<=prctile(SWRSW_Dur_Veh,95))
 SWRSW_Dur_Veh=SWRSW_Dur_Veh(SWRSW_Dur_Veh<=prctile(SWRSW_Dur_Veh,95))
 
 %%
-%scatter(SWRSW_Dur_Veh,SWRSW_Amp_Veh,'MarkerEdgeColor',"#7E2F8E",'MarkerEdgeAlpha',0.8)
+% h(2)=scatter(SWRSW_Dur_Veh,SWRSW_Amp_Veh,'MarkerEdgeColor',"#7E2F8E",'MarkerEdgeAlpha',0.8)
 %plot(nanmedian(SWRSW_Dur_Veh),nanmedian(SWRSW_Amp_Veh),'*','Color',"#7E2F8E",'LineWidth',30)
-h(2)=errorbar(nanmedian(SWRSW_Dur_Veh),nanmedian(SWRSW_Amp_Veh),sem(SWRSW_Amp_Veh)*1.96,sem(SWRSW_Amp_Veh)*1.96,sem(SWRSW_Dur_Veh)*1.96,sem(SWRSW_Dur_Veh)*1.96,'o','Color',"#7E2F8E",'MarkerSize',20)
-
-xlabel('Duration (ms)')
+%h(2)=errorbar(nanmedian(SWRSW_Dur_Veh),nanmedian(SWRSW_Amp_Veh),sem(SWRSW_Amp_Veh)*1.96,sem(SWRSW_Amp_Veh)*1.96,sem(SWRSW_Dur_Veh)*1.96,sem(SWRSW_Dur_Veh)*1.96,'o','Color',"#7E2F8E")%,'MarkerSize',20
+p=gkde2_contour([SWRSW_Dur_Veh SWRSW_Amp_Veh]);
+[M,c]=contour(p.x,p.y,p.pdf,3);
+c.LineColor="#7E2F8E"
+ 
+xlabel('Duration')
 ylabel('AUC')
  set(gca,'xscale','log')
  set(gca,'yscale','log')
@@ -76,7 +117,7 @@ ylabel('AUC')
  
  [p,curvefit,gof, Yp2]=fitter(SWRSW_Dur_Veh,SWRSW_Amp_Veh,xlong);
 hold on
-  plot(xlong, Yp2,'Color',"#7E2F8E",'DisplayName', 'Fit','LineWidth',5 );
+ % plot(xlong, Yp2,'Color',"#7E2F8E",'DisplayName', 'Fit'); %,'LineWidth',5 
 
 %   text(max(SWRSW_Dur_Veh),max(Yp2),' SWR SW')
 
@@ -84,8 +125,8 @@ hold on
 
 T_cSWRSW = readtable('SWRChara.xls','Sheet','Form6');
 
-cSWRSW_Amp_Veh=T_cSWRSW(:,4); %AUC
-cSWRSW_Dur_Veh=T_cSWRSW(:,5);
+cSWRSW_Amp_Veh=T_cSWRSW(:,12); %AUC
+cSWRSW_Dur_Veh=T_cSWRSW(:,13);
 
 cSWRSW_Amp_Veh=table2array(cSWRSW_Amp_Veh);
 cSWRSW_Dur_Veh=table2array(cSWRSW_Dur_Veh);
@@ -94,8 +135,12 @@ cSWRSW_Amp_Veh=cSWRSW_Amp_Veh(cSWRSW_Dur_Veh<=prctile(cSWRSW_Dur_Veh,95))
 cSWRSW_Dur_Veh=cSWRSW_Dur_Veh(cSWRSW_Dur_Veh<=prctile(cSWRSW_Dur_Veh,95))
 
 %%
-%scatter(cSWRSW_Dur_Veh,cSWRSW_Amp_Veh,'MarkerEdgeColor',"#EDB120",'MarkerEdgeAlpha',0.8)
-h(3)=errorbar(nanmedian(cSWRSW_Dur_Veh),nanmedian(cSWRSW_Amp_Veh),sem(cSWRSW_Amp_Veh)*1.96,sem(cSWRSW_Amp_Veh)*1.96,sem(cSWRSW_Dur_Veh)*1.96,sem(cSWRSW_Dur_Veh)*1.96,'o','Color',"#EDB120",'MarkerSize',20)
+%h(3)=scatter(cSWRSW_Dur_Veh,cSWRSW_Amp_Veh,'MarkerEdgeColor',"#EDB120",'MarkerEdgeAlpha',0.8)
+p=gkde2_contour([cSWRSW_Dur_Veh cSWRSW_Amp_Veh]);
+[M,c]=contour(p.x,p.y,p.pdf,3);
+c.LineColor="#EDB120";
+
+%h(3)=errorbar(nanmedian(cSWRSW_Dur_Veh),nanmedian(cSWRSW_Amp_Veh),sem(cSWRSW_Amp_Veh)*1.96,sem(cSWRSW_Amp_Veh)*1.96,sem(cSWRSW_Dur_Veh)*1.96,sem(cSWRSW_Dur_Veh)*1.96,'o','Color',"#EDB120")%,'MarkerSize',20
 
 xlabel('Duration (ms)')
 ylabel('AUC')
@@ -110,7 +155,7 @@ ylabel('AUC')
  
  [p,curvefit,gof,Yp2]=fitter(cSWRSW_Dur_Veh,cSWRSW_Amp_Veh,xlong);
 hold on
-  plot(xlong, Yp2,'Color',"#EDB120",'DisplayName', 'Fit','LineWidth',5 );
+%  plot(xlong, Yp2,'Color',"#EDB120",'DisplayName', 'Fit'); %,'LineWidth',5 
 % text(max(cSWRSW_Dur_Veh),max(Yp2),' cSWR SW')
 %%
 % 
@@ -120,10 +165,49 @@ hold on
 % uistack(h(4),'top');
 
 %%
-% xo
+xo
+
+% XLim: [1 528.3333]
+% YLim: [0.7261 176.2657]
+xlim([1 528.3333])
+ylim([0.7261 176.2657])
+
+% xlim([50 1000])
+% ylim( [0.7575 14.8992]) 
+%%
+f=gcf;
+set(f,'Units','centimeters')
+% h.Position(1)=0;
+% h.Position(2)=0;
+f.Position(3)=3;
+f.Position(4)=3;
+f.PaperSize=[3.05 3.05]
+% f.Position(3)=3.5;
+% f.Position(4)=3.5;
+% f.PaperSize=[3.55 3.55]
+%xo
+ax=gca;
+ax.YColor=[0 0 0];
+ax.XColor=[0 0 0];
+ax.FontSize=8;
+ax.FontName='Arial';
+xo
+%%
+ax.Legend.Units='centimeters';
+ax.Legend.Position(1)=0
+ax.Legend.Position(2)=0
+ax.Legend.Position(3)=0.2
+ax.Legend.Position(4)=0.2
+
+legend('SW','SWR SW', 'CSWR SW')
+
 % legend('SW','Ripples','SWR SW', 'SWR Ripples','CSWR SW','CSWR Ripples' )
 %%
+filename='FigureB_contours_CBD';
+printing_image(filename)
+print('-painters',f,filename,'-dpdf');%'-r0'
 
+%%
 % x1=[SW_Dur_Veh;ripples_Dur_Veh;SWRSW_Dur_Veh;SWRripples_Dur_Veh;cSWRSW_Dur_Veh;cSWRripples_Dur_Veh];
 % y1=[SW_Amp_Veh;ripples_Amp_Veh;SWRSW_Amp_Veh;SWRripples_Amp_Veh;cSWRSW_Amp_Veh;cSWRripples_Amp_Veh];
 
@@ -155,26 +239,11 @@ Yp2 = 10.^(y_est);
 plot(x1, Yp2, '-k', 'DisplayName', 'Fit');
 % legend('SW','SWR SW','CSWR SW','Fit')
 % title('Vehicle SWs')
+% ylim([1 10000])
 xo
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+xlong1=x1;
+x1=linspace(min(length(vertcat(xlong1,xlong2))),max(length(vertcat(xlong1,xlong2))),1000);
 %%
 legend('SW','Ripples','SWR SW', 'SWR Ripples','CSWR SW','CSWR Ripples','Fit SW','Fit Ripples' )
 %%

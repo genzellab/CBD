@@ -14,12 +14,12 @@ clear x1
 %% SW and empty PYR
 T_SW = readtable('SWRChara.xls','Sheet','Form1');
 %%
-SW_Amp_Veh=T_SW(:,4); %AUC (Should be 4 in Veh, 12 in CBD)
+SW_Amp_Veh=T_SW(:,12); %AUC (Should be 4 in Veh, 12 in CBD)
 SW_Amp_Veh=table2array(SW_Amp_Veh);
 
 T_SW_emptyPyr = readtable('SWRChara.xls','Sheet','Form1 pyr.');
 
-SW_emptyPyr_Amp_Veh=T_SW_emptyPyr(:,4); %AUC
+SW_emptyPyr_Amp_Veh=T_SW_emptyPyr(:,12); %AUC
 SW_emptyPyr_Amp_Veh=table2array(SW_emptyPyr_Amp_Veh);
 %%
 %scatter((SW_Amp_Veh),(SW_emptyPyr_Amp_Veh),'o','MarkerFaceColor',"red",'MarkerEdgeColor',"red");
@@ -48,12 +48,12 @@ ylabel('AUC Ripple')
 
 T_Ripple_emptyRad = readtable('SWRChara.xls','Sheet','Form2 bel.');
 %%
-Ripple_emptyRad_Amp_Veh=T_Ripple_emptyRad(:,4); %AUC
+Ripple_emptyRad_Amp_Veh=T_Ripple_emptyRad(:,12); %AUC
 Ripple_emptyRad_Amp_Veh=table2array(Ripple_emptyRad_Amp_Veh);
 
 T_Ripple = readtable('SWRChara.xls','Sheet','Form2');
 
-Ripple_Amp_Veh=T_Ripple(:,4); %AUC
+Ripple_Amp_Veh=T_Ripple(:,12); %AUC
 Ripple_Amp_Veh=table2array(Ripple_Amp_Veh);
 %%
 %scatter((SW_Amp_Veh),(SW_emptyPyr_Amp_Veh),'o','MarkerFaceColor',"red",'MarkerEdgeColor',"red");
@@ -86,12 +86,12 @@ ylabel('AUC Ripple')
 %%
 T_SWSWR = readtable('SWRChara.xls','Sheet','Form3');
 %%
-SWSWR_Amp_Veh=T_SWSWR(:,4); %AUC
+SWSWR_Amp_Veh=T_SWSWR(:,12); %AUC
 SWSWR_Amp_Veh=table2array(SWSWR_Amp_Veh);
 
 T_SWR = readtable('SWRChara.xls','Sheet','Form4');
 
-SWR_Amp_Veh=T_SWR(:,4); %AUC
+SWR_Amp_Veh=T_SWR(:,12); %AUC
 SWR_Amp_Veh=table2array(SWR_Amp_Veh);
 % 
 %%
@@ -123,12 +123,12 @@ ylabel('AUC Ripple')
 % %%
 T_SWcSWR = readtable('SWRChara.xls','Sheet','Form5');
 %%
-SWcSWR_Amp_Veh=T_SWcSWR(:,4); %AUC
+SWcSWR_Amp_Veh=T_SWcSWR(:,12); %AUC
 SWcSWR_Amp_Veh=table2array(SWcSWR_Amp_Veh);
 
 T_cSWR = readtable('SWRChara.xls','Sheet','Form6');
 
-cSWR_Amp_Veh=T_cSWR(:,4); %AUC
+cSWR_Amp_Veh=T_cSWR(:,12); %AUC
 cSWR_Amp_Veh=table2array(cSWR_Amp_Veh);
 
 %%
@@ -141,7 +141,7 @@ c.LineColor="#EDB120"
 % 
 % 
 xlabel('AUC Radiatum')
-ylabel('AUC Pyramidale')
+ylabel('AUC Ripple')
  set(gca,'xscale','log')
  set(gca,'yscale','log')
  
@@ -159,12 +159,12 @@ xo
 
 T_SWSWR = readtable('SWRChara.xls','Sheet','Form3');
 %%
-SWSWR_Amp_CBD=T_SWSWR(:,4); %AUC
+SWSWR_Amp_CBD=T_SWSWR(:,12); %AUC
 SWSWR_Amp_CBD=table2array(SWSWR_Amp_CBD);
 
 T_SWR = readtable('SWRChara.xls','Sheet','Form4');
 
-SWR_Amp_CBD=T_SWR(:,4); %AUC
+SWR_Amp_CBD=T_SWR(:,12); %AUC
 SWR_Amp_CBD=table2array(SWR_Amp_CBD);
 % 
 %%
@@ -192,12 +192,12 @@ SWR_Amp_CBD=table2array(SWR_Amp_CBD);
 %%
 T_SWcSWR = readtable('SWRChara.xls','Sheet','Form5');
 %%
-SWcSWR_Amp_CBD=T_SWcSWR(:,4); %AUC
+SWcSWR_Amp_CBD=T_SWcSWR(:,12); %AUC
 SWcSWR_Amp_CBD=table2array(SWcSWR_Amp_CBD);
 
 T_cSWR = readtable('SWRChara.xls','Sheet','Form6');
 
-cSWR_Amp_CBD=T_cSWR(:,4); %AUC
+cSWR_Amp_CBD=T_cSWR(:,12); %AUC
 cSWR_Amp_CBD=table2array(cSWR_Amp_CBD);
 
 %%
