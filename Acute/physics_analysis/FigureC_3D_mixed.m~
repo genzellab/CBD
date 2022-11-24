@@ -110,59 +110,78 @@ ylim([0.1 10])
 %% 
 OptionZ.FrameRate=15;OptionZ.Duration=20;OptionZ.Periodic=true;
 CaptureFigVid([-20,10;-110,10;-190,10;-290,10;-380,10], '3D_AUC_vs_AUC_mixed_zscore_with_types_compressed',OptionZ)
-%% Merge figures
-
-fh1 = open('FigureC_contours_new_axes.fig');
-fh2 = open('AUC_AUC_mixed.fig');
- ax1 = get(fh1, 'Children');
- ax2 = get(fh2, 'Children');
- ax2p = get(ax2(1),'Children');
- copyobj(ax2p, ax1(1));
- 
-%% Plot surface crossing contours.
+%%
 clear pp
 
 % R
-% pp.N=100;
-% pp=gkde2_contour([Ripple_emptyRad_Amp_Veh(~isnan(Ripple_emptyRad_Amp_Veh)) Ripple_Amp_Veh(~isnan(Ripple_emptyRad_Amp_Veh))],pp);
-% contour(p.x,p.y,[B./max(B(:))]-[pp.pdf./( max(max(pp.pdf)))],[-0.0001:0.0001:0.0001],'Color','b')
-% set(gca,'xscale','log')
-% set(gca,'yscale','log')
-% xlabel('AUC Radiatum')
-% ylabel('AUC Pyramidale')
-% zlabel('Normalized Density') 
-% 
+pp.N=100;
+pp=gkde2_contour([Ripple_emptyRad_Amp_Veh(~isnan(Ripple_emptyRad_Amp_Veh)) Ripple_Amp_Veh(~isnan(Ripple_emptyRad_Amp_Veh))],pp);
+contour(p.x,p.y,[B./max(B(:))]-[pp.pdf./( max(max(pp.pdf)))],[-0.01:0.01:0.01],'Color','b')
+set(gca,'xscale','log')
+set(gca,'yscale','log')
+xlabel('AUC Radiatum')
+ylabel('AUC Pyramidale')
+zlabel('Normalized Density') 
+
 % xlim([0.5586  445.0175])
 % ylim([0.05461   24.1359])
-% xlim([2 140])
-% ylim([0.1 10])
-% hold on
+xlim([2 140])
+ylim([0.1 10])
+hold on
 
 % SWR
 pp.N=100;
 pp=gkde2_contour([SWSWR_Amp_Veh SWR_Amp_Veh],pp);
 contour(p.x,p.y,[B./max(B(:))]-[pp.pdf./( max(max(pp.pdf)))],[-0.0001:0.0001:0.0001],'Color',"#7E2F8E")
-set(gca,'xscale','log')
-set(gca,'yscale','log')
-xlabel('AUC Radiatum')
-ylabel('AUC Pyramidale')
-zlabel('Normalized Density') 
-
-xlim([0.5586  445.0175])
-ylim([0.05461   24.1359])
-hold on
 
 pp.N=100;
 pp=gkde2_contour([SWcSWR_Amp_Veh cSWR_Amp_Veh],pp);
-contour(p.x,p.y,[B./max(B(:))]-[pp.pdf./( max(max(pp.pdf)))],[-0.0001:0.0001:0.0001],'Color',"#EDB120")
+contour(p.x,p.y,[B./max(B(:))]-[pp.pdf./( max(max(pp.pdf)))],-0.0001:0.0001:0.0001,'Color',"#EDB120")
+
+
+%%
+
+pp.N=100;
+
+%pp=gkde2_contour([SWcSWR_Amp_Veh cSWR_Amp_Veh],pp);
 
 
 
+contour(p.x,p.y,[B./max(B(:))]-[pp.pdf./( max(max(pp.pdf)))],[-0.05:0.05:0.05],'Color',"#7E2F8E")
+colorbar()
 set(gca,'xscale','log')
 set(gca,'yscale','log')
+%set(gca,'zscale','log')
+
 xlabel('AUC Radiatum')
 ylabel('AUC Pyramidale')
-zlabel('Normalized Density') 
+zlabel('Z-scored Density') 
 
-xlim([0.5586  445.0175])
-ylim([0.05461   24.1359])
+% xlim([0.5586  445.0175])
+% ylim([0.05461   24.1359])
+xlim([2 140])
+ylim([0.1 10])
+%  set(gca,'zscale','log')
+%   
+% xlim([2 140])
+% ylim([0.1 10]) 
+ %%
+%  contour(p.x,p.y,p.pdf)
+%  set(gca,'xscale','log')
+%  set(gca,'yscale','log')
+%  idx = kmeans([x,y],4)
+
+idx = dbscan([x,y],0.02,20);
+unique(idx)
+  
+scatter(x(idx==1),y(idx==1))
+hold on
+scatter(x(idx==2),y(idx==2))
+scatter(x(idx==3),y(idx==3))
+scatter(x(idx==4),y(idx==4))
+set(gca,'xscale','log')
+ set(gca,'yscale','log')
+
+xlabel('AUC SW')
+ylabel('AUC Ripple')
+

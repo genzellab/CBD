@@ -98,8 +98,8 @@ CO(:,:,3) =  zeros(200); % blue
 % map=[linspace(0,256,200); linspace(0,256,200)];
 % map=[  map.' zeros(length(map),1) zeros(length(map),1)]; 
 
-% s(1)=surf(p.x,p.y,p.pdf./( max(max(p.pdf))),CO,'FaceAlpha',0.5);
-s(1)=surf(p.x,p.y,p.pdf,CO,'FaceAlpha',0.5);
+s(1)=surf(p.x,p.y,p.pdf./( max(max(p.pdf))),CO,'FaceAlpha',0.2,'edgecolor', 'none');
+%s(1)=surf(p.x,p.y,p.pdf,CO,'FaceAlpha',0.2,'edgecolor', 'none');
 xlabel('AUC SW')
 ylabel('AUC Ripple')
 zlabel('Density Probability') 
@@ -125,8 +125,8 @@ CO(:,:,2) =  zeros(p.N);% green
 CO(:,:,3) =  p.pdf./( max(max(p.pdf))).*linspace(0,256,p.N); % blue
 
 
-%s(2)=surf(p.x,p.y,p.pdf./( max(max(p.pdf))),CO,'FaceAlpha',0.5);
-s(2)=surf(p.x,p.y,p.pdf,CO,'FaceAlpha',0.5);
+s(2)=surf(p.x,p.y,p.pdf./( max(max(p.pdf))),CO,'FaceAlpha',0.2,'edgecolor', 'none');
+%s(2)=surf(p.x,p.y,p.pdf,CO,'FaceAlpha',0.2,'edgecolor', 'none');
 
 xlabel('AUC SW')
 ylabel('AUC Ripple')
@@ -146,8 +146,8 @@ CO(:,:,2) =  zeros(p.N);% green
 CO(:,:,3) =  p.pdf./( max(max(p.pdf))).*linspace(0,256,p.N); % blue
 
 
-%s(3)=surf(p.x,p.y,p.pdf./( max(max(p.pdf))),CO,'FaceAlpha',0.5);
-s(3)=surf(p.x,p.y,p.pdf,CO,'FaceAlpha',0.5);
+s(3)=surf(p.x,p.y,p.pdf./( max(max(p.pdf))),CO,'FaceAlpha',0.2,'edgecolor', 'none');
+%s(3)=surf(p.x,p.y,p.pdf,CO,'FaceAlpha',0.2,'edgecolor', 'none');
 
 xlabel('AUC SW')
 ylabel('AUC Ripple')
@@ -165,8 +165,8 @@ CO(:,:,1) =  p.pdf./( max(max(p.pdf))).*linspace(0,256,p.N); % red
 CO(:,:,2) =  p.pdf./( max(max(p.pdf))).*linspace(0,256,p.N); % green
 CO(:,:,3) =  zeros(p.N);% blue
 
-%s(4)=surf(p.x,p.y,p.pdf./( max(max(p.pdf))),CO,'FaceAlpha',0.5);
-s(4)=surf(p.x,p.y,p.pdf,CO,'FaceAlpha',0.5);
+s(4)=surf(p.x,p.y,p.pdf./( max(max(p.pdf))),CO,'FaceAlpha',0.2,'edgecolor', 'none');
+%s(4)=surf(p.x,p.y,p.pdf,CO,'FaceAlpha',0.2,'edgecolor', 'none');
 
 xlabel('AUC SW')
 ylabel('AUC Ripple')
