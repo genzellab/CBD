@@ -152,16 +152,11 @@ y1=[cSWR_Amp_Veh; SWR_Amp_Veh];
 x1=x1(~isnan(x1));
 y1=y1(~isnan(y1));
 
-[curvefit,gof,output] = fit(log10(x1),log10(y1),'poly1','normalize','off')
-%figure();plot(curvefit,log10(x1),log10(y1))
+p=gkde2_contour([x1 y1]);
+[M,c]=contour(p.x,p.y,p.pdf,3);
+c.LineColor="k";
 
-[p, S] = polyfit(log10(x1),log10(y1),1);
-disp(['Equation is y = ' num2str(p(1)) '*x + ' num2str(p(2))])
-
-
-[y_est,delta] = polyval(p,log10(x1),S);
-Yp2 = 10.^(y_est);
-p1=p;
+% scatter(x1,y1)
 % Add trend line to plot
 % hold on
 % plot(log10(x1),y_est,'r--','LineWidth',2)
@@ -169,7 +164,7 @@ p1=p;
 
 
 %
-plot(x1, Yp2, '-k', 'DisplayName', 'Fit');
+% plot(x1, Yp2, '-k', 'DisplayName', 'Fit');
 xlabel('AUC Radiatum')
 ylabel('AUC Pyramidale')
  set(gca,'xscale','log')
@@ -185,16 +180,6 @@ y1=[cSWR_Amp_CBD; SWR_Amp_CBD];
 x1=x1(~isnan(x1));
 y1=y1(~isnan(y1));
 
-[curvefit,gof,output] = fit(log10(x1),log10(y1),'poly1','normalize','off')
-%figure();plot(curvefit,log10(x1),log10(y1))
-
-[p, S] = polyfit(log10(x1),log10(y1),1);
-disp(['Equation is y = ' num2str(p(1)) '*x + ' num2str(p(2))])
-
-
-[y_est,delta] = polyval(p,log10(x1),S);
-Yp2 = 10.^(y_est);
-p2=p;
 
 % Add trend line to plot
 % hold on
@@ -203,8 +188,13 @@ p2=p;
 
 
 %
-plot(x1, Yp2, 'g', 'DisplayName', 'Fit');
-xlabel('AUC SW')
-ylabel('AUC Ripple')
+% scatter(x1, y1, 'g');
+
+p=gkde2_contour([x1 y1]);
+[M,c]=contour(p.x,p.y,p.pdf,3);
+c.LineColor="g";
+
+xlabel('AUC Radiatum')
+ylabel('AUC Pyramidale')
  set(gca,'xscale','log')
  set(gca,'yscale','log')

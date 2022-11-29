@@ -11,7 +11,7 @@ cd('/home/adrian/Documents/CBD_acutes/Chara')
 %Suggestion: For SW, it is better to use AUC with respect to the ripple
 %duration. 
 clear x1
-T_SW = readtable('SWRChara.xls','Sheet','Form2');
+T_SW = readtable('SWRChara.xls','Sheet','Form1');
 %%
 SW_Amp_Veh=T_SW(:,4); %AUC
 SW_Dur_Veh=T_SW(:,5);
@@ -81,7 +81,7 @@ filename='AUC_AUC_SWR&cSWR3';
 
  %% SWR Sharp wave
 
-T_SWRSW = readtable('SWRChara.xls','Sheet','Form4');
+T_SWRSW = readtable('SWRChara.xls','Sheet','Form3');
 
 SWRSW_Amp_Veh=T_SWRSW(:,4); %AUC
 SWRSW_Dur_Veh=T_SWRSW(:,5);
@@ -170,15 +170,15 @@ y1=[SW_Amp_Veh;SWRSW_Amp_Veh;cSWRSW_Amp_Veh];
 x1=x1(~isnan(x1));
 y1=y1(~isnan(y1));
 
-[curvefit,gof,output] = fit(log10(x1),log10(y1),'poly1','normalize','off')
+%[curvefit,gof,output] = fit(log10(x1),log10(y1),'poly1','normalize','off')
 %figure();plot(curvefit,log10(x1),log10(y1))
 
 [p, S] = polyfit(log10(x1),log10(y1),1);
 disp(['Equation is y = ' num2str(p(1)) '*x + ' num2str(p(2))])
 
 
-[y_est,delta] = polyval(p,log10(x1),S);
-Yp2 = 10.^(y_est);
+% [y_est,delta] = polyval(p,log10(x1),S);
+% Yp2 = 10.^(y_est);
 
 % Add trend line to plot
 % hold on
@@ -187,9 +187,13 @@ Yp2 = 10.^(y_est);
 
 
 %
-plot(x1, Yp2, '-k', 'DisplayName', 'Fit');
+% plot(x1, Yp2, '-k', 'DisplayName', 'Fit');
 % legend('SW','SWR SW','CSWR SW','Fit')
 % title('Vehicle SWs')
+
+p=gkde2_contour([x1 y1]);
+[M,c]=contour(p.x,p.y,p.pdf,3);
+c.LineColor="k";
 
 
 xlabel('Duration (ms)')
