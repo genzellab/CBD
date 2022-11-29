@@ -7,4 +7,5 @@
 
 -  criticality_amplitudes.m  & criticality_plot.m : Used to generate a cumulative distribution function of the events amplitude.  (No longer used)
 - scatter_plots_auc.m & scatter_plots_auc_cbd.m : Duration vs AUC (Figure including types.)
-
+- Duration_AUC_types.m 
+ <img src="Duration_AUC_types.PNG" width="400">
