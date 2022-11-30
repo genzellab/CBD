@@ -177,9 +177,9 @@ YY{3}=cSWRSW_Amp_Veh;
 [p_sw_cswr,z2]=compare_slopes(X{1},X{3},Y{1},Y{3});
 [p_swr_cswr,z3]=compare_slopes(X{2},X{3},Y{2},Y{3});
 %%
-[p_sw_swr,z1]=compare_slopes(XX{1},XX{2},YY{1},YY{2});
-[p_sw_cswr,z2]=compare_slopes(XX{1},XX{3},YY{1},YY{3});
-[p_swr_cswr,z3]=compare_slopes(XX{2},XX{3},YY{2},YY{3});
+[p_sw_swr,z1]=compare_slopes(XX{1},XX{2},YY{1},Y{2});
+[p_sw_cswr,z2]=compare_slopes(XX{1},XX{3},Y{1},Y{3});
+[p_swr_cswr,z3]=compare_slopes(XX{2},XX{3},Y{2},Y{3});
 
 %%
 xlim([0 1000])
