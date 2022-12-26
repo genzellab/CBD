@@ -281,4 +281,3 @@ end
        save(strcat('Long_RippleSeq_SWR_Del_CS_',SD_folders{j},'.mat'),'seq_rip_del_spin_long_total','seq_rip_del_spin_long_count') 
        save(strcat('Long_RippleSeq_Del_SWR_CS_',SD_folders{j},'.mat'),'seq_del_rip_spin_long_total','seq_del_rip_spin_long_count') 
 end
-
