@@ -35,3 +35,4 @@ function [co_vec1, co_vec2, count_co_vec1, count_co_vec2]=cooccurrence_vec(a_s,a
     count_co_vec2 = length(unique(co_vec2));
     
 end
+ 
