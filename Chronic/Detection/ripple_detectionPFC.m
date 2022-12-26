@@ -92,4 +92,4 @@ VV_timestamps_NREM = (0:length(VV_timestamps)-1).'/fn;
 %                             total_hfos_minute(j,i) = (total_hfos(j,i)/stage_count*60);
                             stage_count = sum(states(:)==ss);
                             total_swrs = sum(s_hpc);
-                            total_NREM_min =  stage_count/60;
+                            total_NREM_min =  stage_count/60; 
