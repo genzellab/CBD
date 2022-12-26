@@ -124,7 +124,7 @@ for j = 1:length(SD_folders) % Study Day Index
       end
  %% Ripple-spindle sequence detection
          seq_rip_spin = [];
-           if ~isnan(ripples) & ripples ~= 0
+           if ~isnan(ripples) && ripples ~= 0
                if ~isnan(spindles) & spindles ~= 0
                    co=[];
                    v = 0;   
