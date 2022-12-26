@@ -172,4 +172,4 @@ peak_z(bad) = [];
 peak_t(bad) = [];
 
 spindles = [start peak_t stop peak_z];
-spindles = unique(spindles,'rows');
+spindles = unique(spindles,'rows'); 
