@@ -20,6 +20,7 @@ addpath(strcat('F:\OSF\chronic\UMAP - All study days/',rat_folder{k},'/Long_Shor
 SD_folders = getfolder; % List of SD folders
 SD_folders(1) = [];
 for j = 1:length(SD_folders) % Iterates across SDs
+%  for j = 3
         rates_long = [];
         rates_short = [];
         load(strcat('Long_Short_Ripple_',SD_folders{j},'.mat'))
@@ -74,10 +75,10 @@ for j = 1:length(SD_folders) % Iterates across SDs
                     rates_long{1,i}(s,1) = size(long_start,1)/p_min(1,s);
                     rates_long{1,i}(s,2) = size(long_end,1)/p_min(1,s);
                 else
-                    rates_long{1,i} = [];
+                    rates_long{1,i} = zeros(size(id_start,1),2);
                 end
             else 
-                 rates_long{1,i} = NaN;
+                 rates_long{1,i} = zeros(size(id_start,1),2);
             end
             if ~isnan(ripple_timestamps_short{1,i})
                 if ~isempty(ripple_timestamps_short{1,i})
@@ -92,19 +93,19 @@ for j = 1:length(SD_folders) % Iterates across SDs
                     rates_short{1,i}(s,1) = size(short_start,1)/p_min(1,s);
                     rates_short{1,i}(s,2) = size(short_end,1)/p_min(1,s);
                 else 
-                    rates_short{1,i} = [];
+                    rates_short{1,i} = zeros(size(id_start,1),2);
                 end
             else 
-                 rates_short{1,i} = NaN;
+                 rates_short{1,i} = zeros(size(id_start,1),2);
             end
             end
            else 
-               rates_long{1,i} = NaN;
-               rates_short{1,i} = NaN;
+               rates_long{1,i} = [];
+               rates_short{1,i} = [];
            end
            else
-               rates_long{1,i} = NaN;
-               rates_short{1,i} = NaN;
+               rates_long{1,i} = [];
+               rates_short{1,i} = [];
            end
             else 
                 %Post Trial 5 Case 
@@ -156,10 +157,10 @@ for j = 1:length(SD_folders) % Iterates across SDs
                             rates_long{1,i+jj-1}(s,1) = size(long_start,1)/p_min(1,s);
                             rates_long{1,i+jj-1}(s,2) = size(long_end,1)/p_min(1,s);
                         else
-                            rates_long{1,i+jj-1} = [];
+                            rates_long{1,i+jj-1} = zeros(size(id_start,1),2);
                         end
                     else 
-                         rates_long{1,i+jj-1} = NaN;
+                         rates_long{1,i+jj-1} = zeros(size(id_start,1),2);
                     end
                     if ~isnan(ripple_timestamps_short{1,i+jj-1})
                         if ~isempty(ripple_timestamps_short{1,i+jj-1})
@@ -174,19 +175,19 @@ for j = 1:length(SD_folders) % Iterates across SDs
                             rates_short{1,i+jj-1}(s,1) = size(short_start,1)/p_min(1,s);
                             rates_short{1,i+jj-1}(s,2) = size(short_end,1)/p_min(1,s);
                         else 
-                            rates_short{1,i+jj-1} = [];
+                            rates_short{1,i+jj-1} = zeros(size(id_start,1),2);
                         end
                     else 
-                         rates_short{1,i+jj-1} = NaN;
+                         rates_short{1,i+jj-1} = zeros(size(id_start,1),2);
                     end
                     end
                   else
-                     rates_long{1,i+jj-1} = NaN;
-                     rates_short{1,i+jj-1} = NaN;
+                     rates_long{1,i+jj-1} = [0,0];
+                     rates_short{1,i+jj-1} = [0,0];
                   end
                 else
-                   rates_long{1,i+jj-1} = NaN;
-                   rates_short{1,i+jj-1} = NaN;
+                   rates_long{1,i+jj-1} = [];
+                   rates_short{1,i+jj-1} = [];
                 end 
             end
         end

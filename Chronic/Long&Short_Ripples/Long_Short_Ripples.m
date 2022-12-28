@@ -6,13 +6,14 @@ addpath('F:\OSF\ADRITOOLS-master\ADRITOOLS-master')
 addpath('F:\OSF\chronic')
 cd('F:\OSF\chronic\UMAP - All study days') % Animal folders
 
-rat_folder  =getfolder;
+rat_folder = getfolder;
 % prompt = {'Enter the rat index'};
 % dlgtitle = 'Rat Index';
 % k = str2double(inputdlg(prompt,dlgtitle));
 for k = 1:length(rat_folder) % Iterates across animals
 cd(rat_folder{k}) 
 SD_folders  = getfolder; % List of SD folders
+SD_folders(contains('Long_Short_Ripple',SD_folders)) = [];
 waveforms = [];
 timestamps = [];
 for j = 1:length(SD_folders) % Iterates across SDs
@@ -29,7 +30,7 @@ ripple_timestamps_long = [];
         t = timestamps{i};
         if ~isempty(w) & ~isempty(t)
             if ~isnan(t)
-            duration = (cellfun('length',w)/2500); % duration per event in seconds; 2500 is the sampling rate
+            duration = (cellfun('length',w)/2500); % duration per trial in seconds; 2500 is the sampling rate
             duration = duration*1000; % Conversion into miliseconds
             short_ripple = find(duration<=100); %100ms is the threshold
             long_ripple = find(duration>100);

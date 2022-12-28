@@ -56,47 +56,47 @@ id_start(:,1) = v_index;
 id_start(:,2) = v_index+p_sample;
 id_end(:,1) = v_indexend-p_sample;
 id_end(:,2) = v_indexend;
-p_sec = p_sample./600*60; % in minutes not seconds
+p_min = p_sample./600/60; %in minutes not seconds
     for i = 1:size(id_start,1)
         % Sharp wave
         f_s = find(start_f1>=id_start(i,1) & start_f1<=id_start(i,2)); 
         f_e = find(ends_f1>=id_start(i,1)& ends_f1<=id_start(i,2));
-        f1_start = unique([f_s,f_e]); % Start of the bout
+        f1_start = unique([f_s;f_e]); % Start of the bout
         f_s = find(start_f1>=id_end(i,1) & start_f1<=id_end(i,2));
         f_e = find(ends_f1>=id_end(i,1)& ends_f1<=id_end(i,2));
-        f1_end = unique([f_s,f_e]); % End of the bout
-        rates_sharpwave{Ratindex,1}(i,1) = size(f1_start,1)/p_sec(1,i);
-        rates_sharpwave{Ratindex,1}(i,2) = size(f1_end,1)/p_sec(1,i);
+        f1_end = unique([f_s;f_e]); % End of the bout
+        rates_sharpwave{Ratindex,1}(i,1) = size(f1_start,1)/p_min(1,i);
+        rates_sharpwave{Ratindex,1}(i,2) = size(f1_end,1)/p_min(1,i);
         
         % Ripple
         f_s = find(start_f2>=id_start(i,1) & start_f2<=id_start(i,2));
         f_e = find(ends_f2>=id_start(i,1)& ends_f2<=id_start(i,2));
-        f2_start = unique([f_s,f_e]);
+        f2_start = unique([f_s;f_e]);
         f_s = find(start_f2>=id_end(i,1) & start_f2<=id_end(i,2));
         f_e = find(ends_f2>=id_end(i,1)& ends_f2<=id_end(i,2));
-        f2_end = unique([f_s,f_e]); 
-        rates_ripple{Ratindex,1}(i,1) = size(f2_start,1)/p_sec(1,i);
-        rates_ripple{Ratindex,1}(i,2) = size(f2_end,1)/p_sec(1,i);
+        f2_end = unique([f_s;f_e]); 
+        rates_ripple{Ratindex,1}(i,1) = size(f2_start,1)/p_min(1,i);
+        rates_ripple{Ratindex,1}(i,2) = size(f2_end,1)/p_min(1,i);
         
         % SWR
         f_s = find(start_f4>=id_start(i,1) & start_f4<=id_start(i,2));
         f_e = find(ends_f4>=id_start(i,1)& ends_f4<=id_start(i,2));
-        f4_start = unique([f_s,f_e]);
+        f4_start = unique([f_s;f_e]);
         f_s = find(start_f4>=id_end(i,1) & start_f4<=id_end(i,2));
         f_e = find(ends_f4>=id_end(i,1)& ends_f4<=id_end(i,2));
-        f4_end = unique([f_s,f_e]); 
-        rates_SWR{Ratindex,1}(i,1) = size(f4_start,1)/p_sec(1,i);
-        rates_SWR{Ratindex,1}(i,2) = size(f4_end,1)/p_sec(1,i);
+        f4_end = unique([f_s;f_e]); 
+        rates_SWR{Ratindex,1}(i,1) = size(f4_start,1)/p_min(1,i);
+        rates_SWR{Ratindex,1}(i,2) = size(f4_end,1)/p_min(1,i);
         
         % cSWR
         f_s = find(start_f6>=id_start(i,1) & start_f6<=id_start(i,2));
         f_e = find(ends_f6>=id_start(i,1)& ends_f6<=id_start(i,2));
-        f6_start = unique([f_s,f_e]);
+        f6_start = unique([f_s;f_e]);
         f_s = find(start_f6>=id_end(i,1) & start_f6<=id_end(i,2));
         f_e = find(ends_f6>=id_end(i,1)& ends_f6<=id_end(i,2));
-        f6_end = unique([f_s,f_e]); 
-        rates_cSWR{Ratindex,1}(i,1) = size(f6_start,1)/p_sec(1,i);
-        rates_cSWR{Ratindex,1}(i,2) = size(f6_end,1)/p_sec(1,i);
+        f6_end = unique([f_s;f_e]); 
+        rates_cSWR{Ratindex,1}(i,1) = size(f6_start,1)/p_min(1,i);
+        rates_cSWR{Ratindex,1}(i,2) = size(f6_end,1)/p_min(1,i);
     end
     clear id_start id_end p_sample 
 end 

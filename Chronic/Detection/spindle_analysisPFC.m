@@ -433,4 +433,4 @@ clear V_pfc v_pfc V_pfc_bp V_pfc_bp2 v_values vec_bin VV_pfc v2 v_index NC2 NC3
 % j=j+1;
 %  end 
 %   end 
-cd ..
+cd .. 

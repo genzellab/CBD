@@ -87,4 +87,3 @@ for j = 1:length(SD_folders) % Study Day Index
     save (strcat('ShortRipples_del_spinwrip_',SD_folders{j},'.mat'),'del_spinwrip_short_total','del_spinwrip_short_count') 
 end 
 
-

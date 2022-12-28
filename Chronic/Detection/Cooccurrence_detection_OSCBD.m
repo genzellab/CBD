@@ -82,4 +82,4 @@ CO_spindles_TS = {};
  end
    end
     save (strcat('CO_',SD_folders{j},'.mat'),'CO_ripples','CO_spindles','CO_count_hpc','CO_count_pfc','CO_ripples_TS','CO_spindles_TS')
-end
+end 

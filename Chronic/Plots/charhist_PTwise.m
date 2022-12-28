@@ -2,8 +2,11 @@
 % event_Veh = delta_waveforms_broadband_chronic_veh;
 % event_CBD = delta_waveforms_broadband_chronic_cbd;
 
-event_Veh = ripple_waveforms_broadband_chronic_veh;
-event_CBD = ripple_waveforms_broadband_chronic_cbd;
+% event_Veh = ripple_waveforms_broadband_chronic_veh;
+% event_CBD = ripple_waveforms_broadband_chronic_cbd;
+
+event_Veh = spindle_waveforms_broadband_chronic_veh;
+event_CBD = spindle_waveforms_broadband_chronic_cbd;
 
 event_Veh_PT14 = event_Veh(:,1:5);
 event_Veh_PT14 = {vertcat(event_Veh_PT14{:})};
@@ -27,24 +30,46 @@ si_index = cellfun(@(equis) sum(isnan(equis)),event_v,'UniformOutput',false);
 si_index= cell2mat(si_index);
 si_index = ~logical(si_index);
 event_v = event_v(si_index);
-
+clear si_index
    event_c = event_CBD_R{j};
 si_index = cellfun(@(equis) sum(isnan(equis)), event_c,'UniformOutput',false);
 si_index = cell2mat(si_index);
 si_index = ~logical(si_index);
 event_c = event_c(si_index); 
+clear si_index
+
+%% Removing zerors if any 
+si_index = cellfun(@(equis) sum(isequal(equis,0)), event_v,'UniformOutput',false);
+si_index = find(cell2mat(si_index));
+if ~isempty(si_index)
+event_v(si_index) = []; 
+end
+clear si_index
+
+si_index = cellfun(@(equis) sum(isequal(equis,0)), event_c,'UniformOutput',false);
+si_index = find(cell2mat(si_index));
+if ~isempty(si_index)
+event_c(si_index) = []; 
+end
+clear si_index
 
 %% Ripple filter
-Wn1=[100/(2500/2) 300/(2500/2)]; % Cutoff = 100-300 Hz
-[b1,a1] = butter(3,Wn1,'bandpass'); % Filter coefficients
-event_c = cellfun(@(equis)filtfilt(b1,a1,equis),event_c ,'UniformOutput',false);
-event_v = cellfun(@(equis)filtfilt(b1,a1,equis),event_v ,'UniformOutput',false);
+% Wn1=[100/(2500/2) 300/(2500/2)]; % Cutoff = 100-300 Hz
+% [b1,a1] = butter(3,Wn1,'bandpass'); % Filter coefficients
+% event_c = cellfun(@(equis)filtfilt(b1,a1,equis),event_c ,'UniformOutput',false);
+% event_v = cellfun(@(equis)filtfilt(b1,a1,equis),event_v ,'UniformOutput',false);
 
 %% Delta filter 
 % Wn1 = [1/(2500/2) 6/(2500/2)]; % Cutoff = 1-6 Hz
 % [b2,a2] = butter(3,Wn1); % Filter coefficients
 % event_c = cellfun(@(equis)filtfilt(b2,a2,equis), event_c,'UniformOutput',false);
 % event_v = cellfun(@(equis)filtfilt(b2,a2,equis), event_v,'UniformOutput',false);
+
+%% Spindle filter 
+Wn1 = [9/(2500/2) 20/(2500/2)]; % 9-20Hz
+[b2,a2] = butter(3,Wn1); %Filter coefficients
+event_c = cellfun(@(equis)filtfilt(b2,a2,equis), event_c,'UniformOutput',false);
+event_v = cellfun(@(equis)filtfilt(b2,a2,equis), event_v,'UniformOutput',false);
 
 %% Entropy (entp)
 % x_veh = cellfun(@(equis) mean(instfreq(equis,1000)),event_v,'UniformOutput',false);
@@ -103,59 +128,59 @@ p2p_c(j) = {p_CBD};
 clear x_veh x_CBD y_veh y_CBD z_veh z_CBD l_veh l_CBD q_veh q_CBD p_veh p_CBD event_v event_c
 end 
 
-% % Spindles_Veh = vertcat(spindles_waveforms_total_vehicle{:}).';
-% % Spindles_CBD = vertcat(spindles_waveforms_total_CBD{:}).';
+% % ripples_Veh = vertcat(ripples_waveforms_total_vehicle{:}).';
+% % ripples_CBD = vertcat(ripples_waveforms_total_CBD{:}).';
 % % 
-% % Spindles_Veh = spindles_waveforms_broadband_veh.';
-% % Spindles_CBD = spindles_waveforms_broadband_CBD.';
+% % ripples_Veh = ripples_waveforms_broadband_veh.';
+% % ripples_CBD = ripples_waveforms_broadband_CBD.';
 % 
-% Spindles_Veh = delta_waveform_broadband_veh.';
-% Spindles_CBD = delta_waveform_broadband_CBD.';
+% ripples_Veh = delta_waveform_broadband_veh.';
+% ripples_CBD = delta_waveform_broadband_CBD.';
 % 
-% si_index = cellfun(@(equis) sum(isnan(equis)), Spindles_Veh,'UniformOutput',false);
+% si_index = cellfun(@(equis) sum(isnan(equis)), ripples_Veh,'UniformOutput',false);
 % si_index= cell2mat(si_index);
 % si_index = ~logical(si_index);
-% Spindles_Veh= Spindles_Veh(si_index);
+% ripples_Veh= ripples_Veh(si_index);
 % 
-% si_index = cellfun(@(equis) sum(isnan(equis)), Spindles_CBD,'UniformOutput',false);
+% si_index = cellfun(@(equis) sum(isnan(equis)), ripples_CBD,'UniformOutput',false);
 % si_index = cell2mat(si_index);
 % si_index = ~logical(si_index);
-% Spindles_CBD = Spindles_CBD(si_index);
+% ripples_CBD = ripples_CBD(si_index);
 % 
-% % Spindles_CBD(14144) = [];
-% % Spindles_CBD(15679) = [];
+% % ripples_CBD(14144) = [];
+% % ripples_CBD(15679) = [];
 % 
-% % Spindles_CBD = Spindles_CBD(IF_CBD<=CBD_threshold);
-% % Spindles_Veh = Spindles_Veh(IF_veh<=veh_threshold);
+% % ripples_CBD = ripples_CBD(IF_CBD<=CBD_threshold);
+% % ripples_Veh = ripples_Veh(IF_veh<=veh_threshold);
 % 
-% x_veh = cellfun(@(equis) mean(instfreq(equis,1000)),Spindles_Veh,'UniformOutput',false);
+% x_veh = cellfun(@(equis) mean(instfreq(equis,1000)),ripples_Veh,'UniformOutput',false);
 % x_veh = vertcat(x_veh{:});
-% x_CBD = cellfun(@(equis) mean(instfreq(equis,1000)),Spindles_CBD,'UniformOutput',false);
+% x_CBD = cellfun(@(equis) mean(instfreq(equis,1000)),ripples_CBD,'UniformOutput',false);
 % x_CBD = vertcat(x_CBD{:});
 % 
-% % y_veh = cellfun(@(equis) (meanfreq(equis,1000)),Spindles_Veh,'UniformOutput',false);
-% % y_veh = cellfun(@(equis) (freqmaxpeak(equis)),Spindles_Veh,'UniformOutput',false);
-% y_veh = cellfun(@(equis) (meanfreq2(equis,1000)),Spindles_Veh,'UniformOutput',false);
+% % y_veh = cellfun(@(equis) (meanfreq(equis,1000)),ripples_Veh,'UniformOutput',false);
+% % y_veh = cellfun(@(equis) (freqmaxpeak(equis)),ripples_Veh,'UniformOutput',false);
+% y_veh = cellfun(@(equis) (meanfreq2(equis,1000)),ripples_Veh,'UniformOutput',false);
 % y_veh = vertcat(y_veh{:});
-% % y_CBD = cellfun(@(equis) (meanfreq(equis,1000)),Spindles_CBD,'UniformOutput',false);
-% % y_CBD = cellfun(@(equis) (freqmaxpeak(equis)),Spindles_CBD,'UniformOutput',false);
-% y_CBD = cellfun(@(equis) (meanfreq2(equis,1000)),Spindles_CBD,'UniformOutput',false);
+% % y_CBD = cellfun(@(equis) (meanfreq(equis,1000)),ripples_CBD,'UniformOutput',false);
+% % y_CBD = cellfun(@(equis) (freqmaxpeak(equis)),ripples_CBD,'UniformOutput',false);
+% y_CBD = cellfun(@(equis) (meanfreq2(equis,1000)),ripples_CBD,'UniformOutput',false);
 % y_CBD = vertcat(y_CBD{:});
 % 
-% z_veh = cellfun(@(equis) max(abs(hilbert(equis))) ,Spindles_Veh,'UniformOutput',false);
+% z_veh = cellfun(@(equis) max(abs(hilbert(equis))) ,ripples_Veh,'UniformOutput',false);
 % z_veh = vertcat(z_veh{:});
-% z_CBD = cellfun(@(equis) max(abs(hilbert(equis))),Spindles_CBD,'UniformOutput',false);
+% z_CBD = cellfun(@(equis) max(abs(hilbert(equis))),ripples_CBD,'UniformOutput',false);
 % z_CBD = vertcat(z_CBD{:});
 % 
 % 
-% l_veh = cell2mat(cellfun(@(equis) trapz((1:length(equis))./1000,abs(equis)), Spindles_Veh,'UniformOutput',false));
-% l_CBD = cell2mat(cellfun(@(equis) trapz((1:length(equis))./1000,abs(equis)), Spindles_CBD,'UniformOutput',false));
+% l_veh = cell2mat(cellfun(@(equis) trapz((1:length(equis))./1000,abs(equis)), ripples_Veh,'UniformOutput',false));
+% l_CBD = cell2mat(cellfun(@(equis) trapz((1:length(equis))./1000,abs(equis)), ripples_CBD,'UniformOutput',false));
 % 
-% q_veh =(cellfun('length',Spindles_Veh)/1000);
-% q_CBD = (cellfun('length',Spindles_CBD)/1000);
+% q_veh =(cellfun('length',ripples_Veh)/1000);
+% q_CBD = (cellfun('length',ripples_CBD)/1000);
 % 
-% p_veh = cellfun(@peak2peak,Spindles_Veh);
-% p_CBD = cellfun(@peak2peak,Spindles_CBD);
+% p_veh = cellfun(@peak2peak,ripples_Veh);
+% p_CBD = cellfun(@peak2peak,ripples_CBD);
 
 
            subplot(3,2,1)
@@ -168,7 +193,7 @@ end
             h2.FaceColor= [0.4940 0.1840 0.5560];
             legend('Vehicle', 'CBD')
             alpha(0.7)
-                  xlim([0 5])
+%                   xlim([0 5])
             hold off
             
             subplot(3,2,2)
@@ -184,7 +209,7 @@ end
             h2.FaceColor= [0.4940 0.1840 0.5560];
             legend('Vehicle', 'CBD')
             alpha(0.7)
-             xlim([0 12])
+%              xlim([0 12])
             hold off
             
             
@@ -199,7 +224,7 @@ end
             h2.FaceColor= [0.4940 0.1840 0.5560];
             legend('Vehicle', 'CBD')
             alpha(0.7)
-                  xlim([0 250])
+                   xlim([0 150])
             hold off
             
             
@@ -214,7 +239,7 @@ end
             h2.FaceColor = [0.4940 0.1840 0.5560];
             legend('Vehicle', 'CBD')
             alpha(0.7)
-                    xlim([0 20])
+%                     xlim([0 20])
             hold off
             
             subplot(3,2,5)
@@ -228,7 +253,7 @@ end
             h2.FaceColor= [0.4940 0.1840 0.5560];
             legend('Vehicle', 'CBD')
             alpha(0.7)
-                  xlim([400 1150])
+%                   xlim([400 1150])
             hold off
             
             subplot(3,2,6)
@@ -242,7 +267,7 @@ end
             h2.FaceColor= [0.4940 0.1840 0.5560];
             legend('Vehicle', 'CBD')
              alpha(0.7)
-            xlim([0 250])
+%             xlim([0 250])
             hold off
             
       

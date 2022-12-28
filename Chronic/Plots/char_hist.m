@@ -36,7 +36,10 @@ z_CBD = cellfun(@(equis) max(abs(hilbert(equis))),Ripples_CBD,'UniformOutput',fa
 z_CBD = vertcat(z_CBD{:});
 
 l_veh = cell2mat(cellfun(@(equis) trapz((1:length(equis))./2500,abs(equis)), Ripples_Veh,'UniformOutput',false));
-l_CBD = cell2mat(cellfun(@(equis) trapz((1:length(equis))./2500,abs(equis)), Ripples_CBD,'UniformOutput',false));
+l_CBD = cell2mat(cellfun(@(equis) trapz((1:length(equis))./2500,abs(equis)), Ripples_CBD,'UniformOutput',false)); %this is the UMAP formula
+
+% duration = (cellfun('length',w)/2500); % this is the correct one 
+
 
 q_veh =(cellfun('length',Ripples_Veh)/2500);
 q_CBD = (cellfun('length',Ripples_CBD)/2500);
@@ -186,4 +189,4 @@ p_CBD = cellfun(@peak2peak,Ripples_CBD);
             xlim([0 250])
             hold off
             
-      
+     
