@@ -10,7 +10,7 @@ Scripts for CBD project.
 
 
 ## Code credits:
-- Adrian Aleman-Zapata
+- [Adrian Aleman-Zapata](https://github.com/Aleman-Z/)
 - Tugdual Adam
 - Victor Canales Lima
 - Abdelrahman Rayan
