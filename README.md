@@ -18,6 +18,6 @@ Scripts for CBD project.
 - Linda Tomy
 - Swatantra Dhara
 - Kopal Agarwal
-- Pelin Özsezer
+- [Pelin Özsezer](https://github.com/pelinozsezer)
 
 
