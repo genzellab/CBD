@@ -1,5 +1,5 @@
 # :sparkles: Data Generation for CSD Analysis :sparkles:
-:pushpin: **Requirements**: Matlab Signal Processing Toolbox.
+:pushpin: **Requirements**: [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html).
 
 ------------------------------------
 
