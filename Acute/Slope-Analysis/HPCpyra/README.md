@@ -10,9 +10,9 @@
 
 - **create_baseline_HPCpyra.m:** Randomly select 2000 time windows of 6 seconds from the raw signal of NonREM sleep to be used as baselines data.
 
-- **spectra_all_events_HPCpyra.m/spectra_event_types_PFCshal.m:** Computes power spectrum with x and y axes in logarithms with a base of 10.
+- **spectra_all_events_HPCpyra.m/spectra_event_types_HPCpyra.m:** Computes power spectrum with x and y axes in logarithms with a base of 10.
 
-- **spectra_all_events_nonloggedx_HPCpyra.m/spectra_event_types_nonloggedx_PFCshal.m:** Computes power spectrum with only y axis in logarithm with a base of 10.
+- **spectra_all_events_nonloggedx_HPCpyra.m/spectra_event_types_nonloggedx_HPCpyra.m:** Computes power spectrum with only y axis in logarithm with a base of 10.
 
 - **save_slope_HPCpyra.m:** Outputs and saves power spectrum values to be used for slope analysis. 
 
