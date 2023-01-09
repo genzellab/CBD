@@ -8,13 +8,13 @@
 <a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Chronic/Long%26Short_Ripples/Slope-Analysis/pipeline.png" align="center" height="200" width="400" ></a>
 ------------------------------------
 
-- **spectra_PFC/HPC.m:**
+- **spectra_PFC/HPC.m:** Computes power spectrum with x and y axes in logarithms with a base of 10.
 
-- **save_slope_PFC/HPC.m:**
+- **save_slope_PFC/HPC.m:** Outputs and saves power spectrum values to be used for slope analysis.
 
-- **slope-analysis-PFC/HPC.py:**
+- **slope-analysis-PFC/HPC.py:** Runs slope analysis on power spectrum.
 
-- **stats_PFC/HPC.m:**
+- **stats_PFC/HPC.m:** Arranges the data (i.e., slopes and offset) for SPSS to run statistics.
 
 
 
