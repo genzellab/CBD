@@ -9,11 +9,11 @@
 
 ------------------------------------
 
-- **powspctrm_all_acutes_final.m:**
+- **powspctrm_all_acutes_final.m:** Computes power spectrum of REM and NonREM sleep stages.
 
-- **save_slope_acutes.m:**
+- **save_slope_acutes.m:** Outputs and saves power spectrum values to be used for slope analysis.
 
-- **slope-analysis-acutes.py:**
+- **slope-analysis-acutes.py:** Runs slope analysis on power spectrum.
 
-- **stats_acutes.m:**
+- **stats_acutes.m:** Arranges the data (i.e., slopes and offset) for SPSS to run statistics.
 
