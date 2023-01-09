@@ -85,6 +85,11 @@ _Event types:_
 - 6 complex Ripple-SWR
 
 ----
+### Spectral Analysis
+
  - **Spectrograms:** https://github.com/genzellab/CBD/tree/main/Acute/Spectrograms
  - **Slope Analysis (PFCshal, HPCpyra, & Sleep-Like Stages):** https://github.com/genzellab/CBD/tree/main/Acute/Slope-Analysis
+
+### Current Source Density Analysis
+
  - **Data Preprocessing for CSD:** https://github.com/genzellab/CBD/tree/main/Acute/Current-Source-Density-Analysis-(CSD)/data-processing-32-channels
