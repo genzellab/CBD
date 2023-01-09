@@ -1,7 +1,7 @@
+
 %% Adrian Aleman Zapata & Pelin Ozsezer
 
-%% Downsample the data from 30000 Hz to 600 Hz
-
+%% Downsample the data from 30 kHz to 600 Hz
 clc
 clear
 format compact
@@ -169,8 +169,7 @@ for rat = rats
         
             cd(data_directory)
             temp_var = strcat( 'clear HPC',num2str(ch));
-            eval(sprintf('%s',temp_var));
-          
+            eval(sprintf('%s',temp_var));  
         end
     end
 end
@@ -270,13 +269,4 @@ for ch=channels(1:32)
             end
         end
 end
-
-
-
-
-
-
-
-
-
 

@@ -115,6 +115,3 @@ end
 
 % cut and paste into /binned-data/detections_final_unfiltered
 
-
-
-

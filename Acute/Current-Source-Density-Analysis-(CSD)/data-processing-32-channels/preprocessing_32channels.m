@@ -1,3 +1,4 @@
+
 %% Victor A. Camales Lama & Pelin Ozsezer
 
 %% ||| Pyramidal and Below-Pyramidal Data Preprocessing ||| %%
@@ -22,7 +23,6 @@ states_dirpath = uigetdir('..', 'Folder with sleep states');
 regions = uigetdir('..', 'Folder with all brain regions data');
 
 %% Preprocessing: Cleaning %%
-
 cd /home/genzellab/Desktop/Pelin/cleaned_data
 for ch=1:32
     ch
@@ -42,7 +42,6 @@ for ch=1:32
 end
 
 %% Preprocessing: Alignment %%
-
 results_dir = uigetdir('..','Folder to save processed data');
 
 for ch=1:32

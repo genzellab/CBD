@@ -1,3 +1,4 @@
+
 %% Pelin Ozsezer
 
 %% CBD Project
@@ -78,7 +79,5 @@ clearvars -except data_info GC_ripple_ratID214_cbd GC_sw_ratID214_cbd ...
     GC_swr_ratID214_cbd GC_complex_swr_ratID214_cbd 
 
 save('GC_ratID214_cbd.mat','-v7.3')
-
-
 
 
