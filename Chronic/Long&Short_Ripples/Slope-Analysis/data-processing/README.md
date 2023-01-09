@@ -9,7 +9,12 @@
 
 ------------------------------------
 
-- 
+- **dataprocessing_chronics_slope_analysis_ratIDX.m:** Processes downsampled chronics data for slope analysis. Extracts each ripple type (i.e., short & long) per trial, per condition (study day) and per rat. The output is, for example, rat4_SD7_HC_cbd_pt54 (which means study day 7 that is 'Home Cage' condition -  CBD - Rat 4).
 
+- **merge_rats_chronics.m** Merge all of the data per ripple type and per treatment.
+
+- **remove_nan_PFC/HPC.m** Removes missing data.
+
+- **create_baselines.m** Randomly selects 400 baselines from the raw signal of NonREM sleep for PFC & HPC and Vehicle & CBD. Each baseline is 4 seconds long.
 
 
