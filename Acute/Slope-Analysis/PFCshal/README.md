@@ -8,13 +8,12 @@
 
 ------------------------------------
 
-- **MAIN_script_ripples_pca_threshold_gmm.m**: Extracts ripples from waveforms; Generates the data of features; Normalizes and computes PCA; Generates density maps; Thresholds; Fits GMM model; Finds clusters per treatment; Creates new files per cluster and per treatment.
+- **spectra_all_events_PFCshal.m/spectra_event_types_PFCshal.m:** Computes power spectrum with x and y axes in logarithms with a base of 10.
 
-- **split_waveforms_all.m**: Finds visually inspected missing data and replaces them with the proper data; Sorts out the data per rat and per study day.
+- **spectra_all_events_nonloggedx_PFCshal.m/spectra_event_types_nonloggedx_PFCshal.m:** Computes power spectrum with only y axis in logarithm with a base of 10.
 
-- **GC_ripple_4clusters_median_wa.m**: Prepares data for spectrograms and Granger analysis; Finds the 2000 ripples closest to the median in amplitude; Removes artifacts.
+- **save_slope_PFCshal.m:** Outputs and saves power spectrum values to be used for slope analysis. 
 
-- **spectrogram_main.m**: Generates spectrograms and contrasts; Runs statistics on contrasts.
+- **slope-analysis-all-events.py/slope-analysis-event-types.py:** Runs slope analysis on power spectrum.
 
-- **granger_main.m**: Generates Granger Analysis plots and contrasts; Runs statistics on contrasts.
-
+- **stats_PFCshal.m:** Arranges the data (i.e., slopes and offset) for SPSS to run statistics.
