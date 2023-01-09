@@ -7,7 +7,7 @@
 ------------------------------------
 
 ## Pipeline 
-<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Acute/Spectrograms/pipeline.png" align="center" height="500" width="525" ></a>
+<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Acute/Spectrograms/pipeline.png" align="center" height="600" width="525" ></a>
 
 ------------------------------------
 
