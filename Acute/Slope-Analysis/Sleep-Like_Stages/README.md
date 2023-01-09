@@ -5,7 +5,7 @@
 
 ------------------------------------
 ## Pipeline 
-<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Acute/Slope-Analysis/Sleep-Like_Stages/pipeline.png" height="500" width="525" ></a>
+<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Acute/Slope-Analysis/Sleep-Like_Stages/pipeline.png" height="600" width="750" ></a>
 
 ------------------------------------
 
