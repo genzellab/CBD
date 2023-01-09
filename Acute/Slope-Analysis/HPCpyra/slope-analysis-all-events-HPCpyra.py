@@ -15,15 +15,6 @@ from fooof.sim.utils import set_random_seed
 from fooof.plts.spectra import plot_spectrum
 from fooof.plts.annotate import plot_annotated_model
 
-# DATA
-# import scipy.io as sio
-# freq = sio.loadmat('/Users/pelinozsezer/Desktop/freq.mat')
-# all_events_veh = sio.loadmat('all_events_veh.mat')
-# print(freq.keys())
-# freq=["freq"]
-# print(freq)
-
-
 
 ##############
 ## ANALYSIS ##
@@ -47,7 +38,6 @@ all_events_veh = np.array(all_events_veh)
 freq = np.squeeze(freq)
 all_events_veh = np.squeeze(all_events_veh)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 all_events_veh.shape  # must be e.g. (18392,399)
@@ -60,12 +50,11 @@ fg.fit(freq, all_events_veh, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_all_events_veh.csv")
 
@@ -73,9 +62,6 @@ DF.to_csv("slopes_HPCpyra_all_events_veh.csv")
 offsets_ = fg.get_params('aperiodic_params', 'offset')
 DF = pd.DataFrame(offsets_)
 DF.to_csv("offsets_HPCpyra_all_events_veh.csv")
-
-
-
 
 
 
@@ -100,7 +86,6 @@ all_events_cbd = np.array(all_events_cbd)
 freq = np.squeeze(freq)
 all_events_cbd = np.squeeze(all_events_cbd)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 all_events_cbd.shape  # must be e.g. (18392,399)
@@ -113,12 +98,11 @@ fg.fit(freq, all_events_cbd, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_all_events_cbd.csv")
 
@@ -127,22 +111,4 @@ DF.to_csv("slopes_HPCpyra_all_events_cbd.csv")
 offsets_ = fg.get_params('aperiodic_params', 'offset')
 DF = pd.DataFrame(offsets_)
 DF.to_csv("offsets_HPCpyra_all_events_cbd.csv")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

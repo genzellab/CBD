@@ -5,7 +5,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Vehicle - All events %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-
 clc
 clear all
 close all
@@ -66,8 +65,8 @@ freq=freq_all_events.freq;
 clearvars -except sterror_all_events_veh mean_all_events_veh freq
 save mean_sterror_veh.mat
 
-%% BASELINE - VEH
-%% Baseline
+
+%% Baseline - Veh
 load('baseline_2000_HPCpyra.mat');
 % Fieldtrip format
 input1=GC_baseline_HPCpyra_veh;
@@ -120,7 +119,6 @@ save mean_sterror_baseline_veh.mat
 %%%%%%%%%%%%%%%%%%%%%%
 %% CBD - All events %%
 %%%%%%%%%%%%%%%%%%%%%%
-
 clc
 clear all
 close all
@@ -180,8 +178,8 @@ freq=freq_all_events.freq;
 clearvars -except sterror_all_events_cbd mean_all_events_cbd freq
 save mean_sterror_cbd.mat
 
-%% BASELINE - CBD
-%% Baseline
+
+%% Baseline - CBD
 load('baseline_2000_HPCpyra.mat');
 % Fieldtrip format
 input1=GC_baseline_HPCpyra_cbd;

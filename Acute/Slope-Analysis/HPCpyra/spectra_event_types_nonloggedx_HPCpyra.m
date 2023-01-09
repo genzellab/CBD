@@ -2,7 +2,6 @@
 
 %% Compute Sepctra for Event Types
 
-
 %%%%%%%%%%%%%
 %% Vehicle %%
 %%%%%%%%%%%%%
@@ -25,6 +24,7 @@ GC_ripple_veh=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_detections_HPCpyr
 GC_sw_veh=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_detections_HPCpyra_sw_veh,'UniformOutput',false);
 GC_swr_veh=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_detections_HPCpyra_swr_veh,'UniformOutput',false);
 GC_complex_swr_veh=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_detections_HPCpyra_complex_swr_veh,'UniformOutput',false);
+
 
 %% Baseline
 % Fieldtrip format
@@ -373,6 +373,7 @@ GC_ripple_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_detections_HPCpyr
 GC_sw_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_detections_HPCpyra_sw_cbd,'UniformOutput',false);
 GC_swr_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_detections_HPCpyra_swr_cbd,'UniformOutput',false);
 GC_complex_swr_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_detections_HPCpyra_complex_swr_cbd,'UniformOutput',false);
+
 
 %% Baseline
 % Fieldtrip format

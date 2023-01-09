@@ -6,7 +6,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Vehicle - All events %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-
 clc
 clear all
 close all
@@ -79,7 +78,6 @@ csvwrite('power_spec_all_events_veh.csv', FileData.power_spec_all_events_veh);
 %%%%%%%%%%%%%%%%%%%%%%
 %% CBD - All events %%
 %%%%%%%%%%%%%%%%%%%%%%
-
 clc
 clear all
 close all
@@ -143,14 +141,12 @@ clear
 
 FileData = load('power_spec_all_events_cbd.mat');
 csvwrite('power_spec_all_events_cbd.csv', FileData.power_spec_all_events_cbd);
-  
+
 
 
 %%%%%%%%%%%%%%%%%
 %% EVENT TYPES %%
 %%%%%%%%%%%%%%%%%
-
-
 
 %%%%%%%%%%%%%
 %% Vehicle %%
@@ -158,7 +154,6 @@ csvwrite('power_spec_all_events_cbd.csv', FileData.power_spec_all_events_cbd);
 clc
 clear all
 close all
-
 
 load detections_HPC_veh.mat
 load baseline_2000_HPCpyra.mat
@@ -259,9 +254,9 @@ cfg2.foi     = 0.5:0.25:100; % 1/cfg1.length  = 4;
 freq = ft_freqanalysis(cfg2, rpt);
 power_spec_ripple_veh=squeeze(freq.powspctrm);
 
-
 power_spec_ripple_veh = power_spec_ripple_veh(randperm(size(power_spec_ripple_veh, 1)), :);
 power_spec_ripple_veh=power_spec_ripple_veh(1:1200,:);
+
 
 %% SW
 clear data
@@ -306,6 +301,7 @@ power_spec_sw_veh=squeeze(freq.powspctrm);
 
 power_spec_sw_veh = power_spec_sw_veh(randperm(size(power_spec_sw_veh, 1)), :);
 power_spec_sw_veh=power_spec_sw_veh(1:1200,:);
+
 
 %% SWR
 clear data
@@ -403,9 +399,7 @@ save power_spec_sw_veh.mat power_spec_sw_veh
 save power_spec_swr_veh.mat power_spec_swr_veh
 save power_spec_complex_swr_veh.mat power_spec_complex_swr_veh
 
-
 %% mat file to csv
-
 clear
 FileData = load('power_spec_baseline_veh.mat');
 csvwrite('power_spec_baseline_veh.csv', FileData.power_spec_baseline_veh);
@@ -427,15 +421,12 @@ FileData = load('power_spec_complex_swr_veh.mat');
 csvwrite('power_spec_complex_swr_veh.csv', FileData.power_spec_complex_swr_veh);
 
 
-
-
 %%%%%%%%%
 %% CBD %%
 %%%%%%%%%
 clc
 clear all
 close all
-
 
 load detections_HPC_cbd.mat
 load baseline_2000_HPCpyra.mat
@@ -449,6 +440,7 @@ GC_ripple_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_ripple_cbd,'Unifo
 GC_sw_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_sw_cbd,'UniformOutput',false);
 GC_swr_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_swr_cbd,'UniformOutput',false);
 GC_complex_swr_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_complex_swr_cbd,'UniformOutput',false);
+
 
 %% Baseline
 % Fieldtrip format
@@ -494,6 +486,7 @@ freq=freq.freq;
 power_spec_baseline_cbd = power_spec_baseline_cbd(randperm(size(power_spec_baseline_cbd, 1)), :);
 power_spec_baseline_cbd=power_spec_baseline_cbd(1:1200,:);
 
+
 %% Ripple
 clear data
 % Fieldtrip format
@@ -537,6 +530,7 @@ power_spec_ripple_cbd=squeeze(freq.powspctrm);
 
 power_spec_ripple_cbd = power_spec_ripple_cbd(randperm(size(power_spec_ripple_cbd, 1)), :);
 power_spec_ripple_cbd=power_spec_ripple_cbd(1:1200,:);
+
 
 %% SW
 clear data
@@ -679,8 +673,7 @@ save power_spec_sw_cbd.mat power_spec_sw_cbd
 save power_spec_swr_cbd.mat power_spec_swr_cbd
 save power_spec_complex_swr_cbd.mat power_spec_complex_swr_cbd
 
-% mat file to csv
-
+%% mat file to csv
 clear
 FileData = load('power_spec_baseline_cbd.mat');
 csvwrite('power_spec_baseline_cbd.csv', FileData.power_spec_baseline_cbd);
@@ -701,10 +694,4 @@ clear
 FileData = load('power_spec_complex_swr_cbd.mat');
 csvwrite('power_spec_complex_swr_cbd.csv', FileData.power_spec_complex_swr_cbd);
 clear
-
-
-
-
-
-
 

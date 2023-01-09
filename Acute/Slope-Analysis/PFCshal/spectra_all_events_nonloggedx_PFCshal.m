@@ -5,7 +5,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Vehicle - All events %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-
 clc
 clear all
 close all
@@ -67,8 +66,7 @@ clearvars -except sterror_all_events_veh mean_all_events_veh freq
 save mean_sterror_veh.mat
 
 
-%% BASELINE - VEH
-%% Baseline
+%% Baseline - Veh
 load('baseline_PFC_wa.mat');
 % Fieldtrip format
 input1=GC_baseline_PFCshal_veh;
@@ -121,7 +119,6 @@ save mean_sterror_baseline_veh.mat
 %%%%%%%%%%%%%%%%%%%%%%
 %% CBD - All events %%
 %%%%%%%%%%%%%%%%%%%%%%
-
 clc
 clear all
 close all
@@ -174,7 +171,6 @@ cfg2.foi     = 0.5:0.25:100; % 1/cfg1.length  = 4;
 freq_all_events = ft_freqanalysis(cfg2, rpt_all_events);
 power_spec=squeeze(freq_all_events.powspctrm);
 
-
 %% Calculate STerror & mean
 sterror_all_events_cbd=std(log10(power_spec)) / sqrt(length(power_spec));
 mean_all_events_cbd=mean(log10(power_spec),1);
@@ -184,9 +180,7 @@ clearvars -except sterror_all_events_cbd mean_all_events_cbd freq
 save mean_sterror_cbd.mat
 
 
-
-%% BASELINE - CBD
-%% Baseline
+%% Baseline - CBD
 load('baseline_PFC_wa.mat');
 % Fieldtrip format
 input1=GC_baseline_PFCshal_cbd;
@@ -281,7 +275,6 @@ x = (freq);
 % p=fill(x2, inBetween,[0 0 0]);
 % p.FaceAlpha = 1;
 % hold on
-
 plot(x, y,'LineStyle',':' ,'Color',[0 0 0], 'LineWidth', 2);
 
 %% CBD
@@ -314,10 +307,7 @@ x = (freq);
 % p=fill(x2, inBetween,[0 0 0]);
 % p.FaceAlpha = 1;
 % hold on
-
 plot(x, y,'LineStyle',':' ,'Color',[12/255 97/255 13/255], 'LineWidth', 2);
-
-% 
 
 lgd =legend('SE Veh','Mean Veh','Baseline Veh','SE CBD','Mean CBD','Baseline CBD');
 
@@ -325,7 +315,4 @@ saveas(gcf,'periodogram_all_events.fig')
 saveas(gcf,'periodogram_all_events.jpg')
 saveas(gcf,'periodogram_all_events.pdf')
 close all
-
-
-
 

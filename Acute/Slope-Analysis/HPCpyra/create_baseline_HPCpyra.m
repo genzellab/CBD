@@ -3,9 +3,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CREATE BASELINE                                          %%
 %% Baseline vs Event Type (Ripple, SW, SWR, & Complex SWR)  %%
-%% For HPCpyra                                   %%
+%% For HPCpyra                                              %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 clc
 clear
 
@@ -38,6 +37,7 @@ NREM_HPCpyra_veh=NREM_HPCpyra(rats_veh,:);
 NREM_HPCpyra_cbd=NREM_HPCpyra(rats_cbd,:);
 
 cd /Users/pelinozsezer/Documents/Science/Radboud/CBD-Project
+
 %%%%%%%%%%%%%
 %% ARRANGE %%
 %%%%%%%%%%%%%
@@ -135,20 +135,17 @@ NREM_HPCpyra_rat9_cbd=rmmissing(NREM_HPCpyra_rat9_cbd);
 NREM_HPCpyra_rat10_cbd=rmmissing(NREM_HPCpyra_rat10_cbd);
 
 
-
 %%%%%%%%%%%%%%%
 %% RANDOMIZE %%
 %%%%%%%%%%%%%%%
 
 % randomize 2000 (for complex SWR -> 1810 - Veh & 1300 - CBD) time windows of 2.2 seconds
-
 rng(13);
 fs=600; % sampling rate is 600 Hz
 
 %%%%%%%%%
 %% Veh %%
 %%%%%%%%%
-   
 waveforms_HPCpyra_baseline_veh=[];
 tw_stored_veh=[];
 for i=1:2000
@@ -250,7 +247,6 @@ end
 %%%%%%%%%
 %% CBD %%
 %%%%%%%%%
-
 waveforms_HPCpyra_baseline_cbd=[];
 tw_stored_cbd=[];
 for i=1:2000
@@ -364,7 +360,4 @@ end
         tw_stored_veh tw_stored_cbd
 
     save baseline_2000_HPCpyra.mat
-
-
-
 

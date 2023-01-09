@@ -38,7 +38,6 @@ baseline_veh = np.array(baseline_veh)
 freq = np.squeeze(freq)
 baseline_veh = np.squeeze(baseline_veh)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 baseline_veh.shape  # must be e.g. (18392,399)
@@ -51,12 +50,11 @@ fg.fit(freq, baseline_veh, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_baseline_veh.csv")
 
@@ -86,7 +84,6 @@ ripple_veh = np.array(ripple_veh)
 freq = np.squeeze(freq)
 ripple_veh = np.squeeze(ripple_veh)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 ripple_veh.shape  # must be e.g. (18392,399)
@@ -99,12 +96,11 @@ fg.fit(freq, ripple_veh, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_ripple_veh.csv")
 
@@ -134,7 +130,6 @@ sw_veh = np.array(sw_veh)
 freq = np.squeeze(freq)
 sw_veh = np.squeeze(sw_veh)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 sw_veh.shape  # must be e.g. (18392,399)
@@ -147,12 +142,11 @@ fg.fit(freq, sw_veh, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_sw_veh.csv")
 
@@ -182,7 +176,6 @@ swr_veh = np.array(swr_veh)
 freq = np.squeeze(freq)
 swr_veh = np.squeeze(swr_veh)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 swr_veh.shape  # must be e.g. (18392,399)
@@ -195,12 +188,11 @@ fg.fit(freq, swr_veh, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_swr_veh.csv")
 
@@ -231,7 +223,6 @@ complex_swr_veh = np.array(complex_swr_veh)
 freq = np.squeeze(freq)
 complex_swr_veh = np.squeeze(complex_swr_veh)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 complex_swr_veh.shape  # must be e.g. (18392,399)
@@ -244,12 +235,11 @@ fg.fit(freq, complex_swr_veh, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_complex_swr_veh.csv")
 
@@ -281,7 +271,6 @@ baseline_cbd = np.array(baseline_cbd)
 freq = np.squeeze(freq)
 baseline_cbd = np.squeeze(baseline_cbd)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 baseline_cbd.shape  # must be e.g. (18392,399)
@@ -294,12 +283,11 @@ fg.fit(freq, baseline_cbd, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_baseline_cbd.csv")
 
@@ -331,7 +319,6 @@ ripple_cbd = np.array(ripple_cbd)
 freq = np.squeeze(freq)
 ripple_cbd = np.squeeze(ripple_cbd)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 ripple_cbd.shape  # must be e.g. (18392,399)
@@ -344,12 +331,11 @@ fg.fit(freq, ripple_cbd, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_ripple_cbd.csv")
 
@@ -380,7 +366,6 @@ sw_cbd = np.array(sw_cbd)
 freq = np.squeeze(freq)
 sw_cbd = np.squeeze(sw_cbd)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 sw_cbd.shape  # must be e.g. (18392,399)
@@ -393,12 +378,11 @@ fg.fit(freq, sw_cbd, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_sw_cbd.csv")
 
@@ -430,7 +414,6 @@ swr_cbd = np.array(swr_cbd)
 freq = np.squeeze(freq)
 swr_cbd = np.squeeze(swr_cbd)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 swr_cbd.shape  # must be e.g. (18392,399)
@@ -443,12 +426,11 @@ fg.fit(freq, swr_cbd, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_swr_cbd.csv")
 
@@ -477,7 +459,6 @@ complex_swr_cbd = np.array(complex_swr_cbd)
 freq = np.squeeze(freq)
 complex_swr_cbd = np.squeeze(complex_swr_cbd)
 
-
 # Check the shape of data
 freq.shape # must be e.g. (399,)
 complex_swr_cbd.shape  # must be e.g. (18392,399)
@@ -490,12 +471,11 @@ fg.fit(freq, complex_swr_cbd, [0, 100])
 
 # Print out results
 fg.print_results()
-exps = fg.get_params('aperiodic_params', 'exponent')
 
-# save
+# SLOPES
+exps = fg.get_params('aperiodic_params', 'exponent')
 # convert array into dataframe
 DF = pd.DataFrame(exps)
- 
 # save the dataframe as a csv file
 DF.to_csv("slopes_HPCpyra_complex_swr_cbd.csv")
 
@@ -504,9 +484,4 @@ DF.to_csv("slopes_HPCpyra_complex_swr_cbd.csv")
 offsets_ = fg.get_params('aperiodic_params', 'offset')
 DF = pd.DataFrame(offsets_)
 DF.to_csv("offsets_HPCpyra_complex_swr_cbd.csv")
-
-
-
-
-
 

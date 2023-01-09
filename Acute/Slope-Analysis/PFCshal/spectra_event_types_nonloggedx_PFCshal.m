@@ -24,6 +24,7 @@ GC_sw_veh=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_sw_veh,'UniformOutput
 GC_swr_veh=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_swr_veh,'UniformOutput',false);
 GC_complex_swr_veh=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_complex_swr_veh,'UniformOutput',false);
 
+
 %% Baseline
 load('baseline_PFC_wa.mat');
 % Fieldtrip format
@@ -372,6 +373,7 @@ GC_sw_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_sw_cbd,'UniformOutput
 GC_swr_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_swr_cbd,'UniformOutput',false);
 GC_complex_swr_cbd=cellfun(@(x) extract_range(x,1801,-1200,1200),GC_complex_swr_cbd,'UniformOutput',false);
 
+
 %% Baseline
 load('baseline_PFC_wa.mat');
 % Fieldtrip format
@@ -628,7 +630,6 @@ hold on
 
 plot(x, y, 'Color',[0 0 0], 'LineWidth', 1.5);
 
-
 % Ripple
 
 y = mean_ripple_cbd; % mean vector
@@ -662,7 +663,6 @@ hold on
 
 plot(x, y, 'Color','r', 'LineWidth', 1.5);
 
-
 % SWR
 y = mean_swr_cbd; % mean vector
 x = (freq);
@@ -676,7 +676,6 @@ p=fill(x2, inBetween,[126/255 47/255 142/255]);
 hold on
 
 plot(x, y, 'Color',[126/255 47/255 142/255], 'LineWidth', 1.5);
-
 
 % Complex SWR
 y = mean_complex_swr_cbd; % mean vector
