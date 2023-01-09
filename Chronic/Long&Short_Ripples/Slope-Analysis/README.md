@@ -8,11 +8,11 @@
 <a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Chronic/Long%26Short_Ripples/Slope-Analysis/pipeline.png" align="center" height="200" width="400" ></a>
 ------------------------------------
 
-- **spectra_PFC/HPC.m:** Computes power spectrum with x and y axes in logarithms with a base of 10. For **_Short Ripples vs Long Ripples_** per treatment.
+- **spectra_PFC/HPC.m:** Computes power spectrum with x and y axes in logarithms with a base of 10. For _Short Ripples vs Long Ripples_ per treatment.
 
-- **spectra_nonloggedx_PFC/HPC.m** Computes power spectrum with only y axis in logarithms with a base of 10. For _**Short Ripples vs Long Ripples**_ per treatment.
+- **spectra_nonloggedx_PFC/HPC.m** Computes power spectrum with only y axis in logarithms with a base of 10. For _Short Ripples vs Long Ripples_ per treatment.
 
-- **spectra_altogether_nonloggedx_PFC.m** Computes power spectrum with only y axis in logarithms with a base of 10. For _**Baselines vs Ripples**_.
+- **spectra_altogether_nonloggedx_PFC.m** Computes power spectrum with only y axis in logarithms with a base of 10. For _Baselines vs Ripples_ per treatment.
 
 - **save_slope_PFC/HPC.m:** Outputs and saves power spectrum values to be used for slope analysis.
 
