@@ -4,7 +4,7 @@
 :pushpin: Makes use of functions from [FieldTrip](https://github.com/fieldtrip/fieldtrip), [OpenEphys](https://github.com/open-ephys/analysis-tools), and 	[ADRITOOLS](https://github.com/Aleman-Z/ADRITOOLS). 
 
 ------------------------------------
-## Pipeline 
+## Pipeline (In Order)
 <a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Acute/Slope-Analysis/HPCpyra/pipeline.png" align="center" height="500" width="525" ></a>
 
 ------------------------------------
