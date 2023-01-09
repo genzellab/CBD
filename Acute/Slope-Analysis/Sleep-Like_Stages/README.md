@@ -9,19 +9,11 @@
 
 ------------------------------------
 
-**Event Types:** Baselines, Ripple, SW, SWR, & Complex SWR.
+- **powspctrm_all_acutes_final.m:**
 
-**All Events:** All event types were merged per treatment (Vehicle & CBD).
+- **save_slope_acutes.m:**
 
-------------------------------------
+- **slope-analysis-acutes.py:**
 
-- **spectra_all_events_PFCshal.m/spectra_event_types_PFCshal.m:** Computes power spectrum with x and y axes in logarithms with a base of 10.
-
-- **spectra_all_events_nonloggedx_PFCshal.m/spectra_event_types_nonloggedx_PFCshal.m:** Computes power spectrum with only y axis in logarithm with a base of 10.
-
-- **save_slope_PFCshal.m:** Outputs and saves power spectrum values to be used for slope analysis. 
-
-- **slope-analysis-all-events.py/slope-analysis-event-types.py:** Runs slope analysis on power spectrum.
-
-- **stats_PFCshal.m:** Arranges the data (i.e., slopes and offset) for SPSS to run statistics.
+- **stats_acutes.m:**
 
