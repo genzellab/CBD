@@ -11,21 +11,30 @@
 
 ------------------------------------
 
-**Event Types:** Baselines, Ripple, SW, SWR, & Complex SWR.
+- **preprocessing_spec:** Removes artifacts in the data; Creates temporally aligned matrices of the data with bins of 45 minutes using functions **clean_dataset_spec.m** and **align_dataset_spec.m**
 
-**All Events:** All event types were merged per treatment (Vehicle & CBD).
+- **dataprocessing_signal2detections:** Extracts a 6-second long time window of the raw signal using the event’s peak timestamps of each rat event.
+ 
+- **remove_events_with_nan:** Removes missing data.
 
-------------------------------------
+- **dataprocessing_eventtype_rat_HPC/PFC.m:** Arranges data per event type and per rat. The output is, for example, ratID3_brainArea_veh.mat containing the separate data of event types (i.e., Ripple, SW, SWR, & Complex SWR)
 
-- **spectra_all_events_PFCshal.m/spectra_event_types_PFCshal.m:** Computes power spectrum with x and y axes in logarithms with a base of 10.
+- **dataprocessing_combine_eventtype_HPC/PFC.m:** Combines the data of all rats per event type (e.g., GC_detections_PFCshal_ripple_veh).
 
-- **spectra_all_events_nonloggedx_PFCshal.m/spectra_event_types_nonloggedx_PFCshal.m:** Computes power spectrum with only y axis in logarithm with a base of 10.
+- **dataprocessing_median2000events_treatment_eventtype.m:** Select 2000 events closest to the median in amplitude per treatment and per event type.
+%% per treatment & per event type
 
-- **save_slope_PFCshal.m:** Outputs and saves power spectrum values to be used for slope analysis. 
+- **remove_artifact_event_median_data_PFC:** Removes the artifacts in the output data of _dataprocessing_median2000events_treatment_eventtype.m_
 
-- **slope-analysis-all-events.py/slope-analysis-event-types.py:** Runs slope analysis on power spectrum.
+- **create_baseline_PFC.m:** Randomly select 2000 time windows of 6 seconds from the raw signal of NonREM sleep of PFC to be used as baselines data.
 
-- **stats_PFCshal.m:** Arranges the data (i.e., slopes and offset) for SPSS to run statistics.
+- **remove_artifact_baseline_PFC.m:** Removes the artifacts in the output data of _create_baseline_PFC.m_
+
+- **spectrogram_baseline_vs_eventtype.m:** Computes spectrograms between baselines and each event type (i.e., Ripple, SW, SWR, & Complex SWR) per treatment; Creates contrast plots; Runs statistics on contrasts.
+
+- **spectrogram_Veh_vs_CBD_4eachEventType.m:** Computes spectrograms between Vehicle and CBD for each event type (i.e., Ripple, SW, SWR, & Complex SWR); Creates contrast plots; Runs statistics on contrasts.
+
+- **spectrogram_Veh_vs_CBD_baseline.m:** Computes spectrograms between the baselines of Vehicle and CBD; Creates contrast plot; Runs statistics on contrast.
 
 
 
