@@ -1,4 +1,4 @@
-function [signals, sleep_states, signals_indexes, bins_num] = align_dataset_pelin(region_dirpath, states_dirpath, bin_size)
+function [signals, sleep_states, signals_indexes, bins_num] = align_dataset_spec(region_dirpath, states_dirpath, bin_size)
 % Creates aligned matrices for an specific brain region for multiple
 % rodents, as well as sleep states matrices and indices to access unpadded
 % individual signals per rodent

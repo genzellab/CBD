@@ -1,4 +1,4 @@
-function [] = clean_dataset_pelin(regions, selected_region, results_dir, rats, thresholds)
+function [] = clean_dataset_spec(regions, selected_region, results_dir, rats, thresholds)
 % Creates aligned matrices for an specific brain region for multiple
 % rodents, as well as sleep states matrices and indices to access unpadded
 % individual signals per rodent

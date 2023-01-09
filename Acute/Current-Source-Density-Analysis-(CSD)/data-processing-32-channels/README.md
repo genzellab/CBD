@@ -1,5 +1,5 @@
 # :sparkles: Data Generation for CSD Analysis :sparkles:
-:pushpin: **Requirements**: Matlab Signal Processing Toolbox.
+:pushpin: **Requirements**: [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html).
 
 ------------------------------------
 
@@ -16,4 +16,4 @@
 ------------------------------------
 *Notes regarding the data of rats:* 
 - Rat 4 has 2 recordings for each channel, except channel 6 which has 3 recordings.
-- Rat 207, 201, 4!! Check these rats after downsampling because they will have more than one file for some channels.
+- Rat 207, 201, 4!! Check these rats after downsampling because they will have more than one file for several channels.
