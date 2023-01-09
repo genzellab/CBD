@@ -10,9 +10,9 @@
 
 - **spectra_PFC/HPC.m:** Computes power spectrum with x and y axes in logarithms with a base of 10. For _**Short Ripples vs Long Ripples**_ per treatment.
 
-- **spectra_nonloggedx_PFC/HPC.m** Computes power spectrum with only y axis in logarithms with a base of 10. For Short Ripples vs Long Ripples per treatment.
+- **spectra_nonloggedx_PFC/HPC.m** Computes power spectrum with only y axis in logarithms with a base of 10. For _**Short Ripples vs Long Ripples**_ per treatment.
 
-- **spectra_altogether_nonloggedx_PFC.m** Computes power spectrum with only y axis in logarithms with a base of 10. For Baselines vs Ripples.
+- **spectra_altogether_nonloggedx_PFC.m** Computes power spectrum with only y axis in logarithms with a base of 10. For _**Baselines vs Ripples**_.
 
 - **save_slope_PFC/HPC.m:** Outputs and saves power spectrum values to be used for slope analysis.
 
