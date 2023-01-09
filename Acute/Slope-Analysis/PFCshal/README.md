@@ -3,8 +3,8 @@
 
 
 ------------------------------------
-# Pipeline 
-<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Acute/Slope-Analysis/PFCshal/pipeline.png.png" align="center" height="500" width="525" ></a>
+## Pipeline 
+<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Acute/Slope-Analysis/PFCshal/pipeline.png" align="center" height="500" width="525" ></a>
 
 ------------------------------------
 
