@@ -5,7 +5,7 @@
 
 ------------------------------------
 ## Pipeline (In Order)
-<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Chronic/Long%26Short_Ripples/Slope-Analysis/data-processing/pipeline.png" align="center" height="200" width="1000" ></a>
+<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Chronic/Long%26Short_Ripples/Slope-Analysis/data-processing/pipeline.png" align="center" height="250" width="1000" ></a>
 
 ------------------------------------
 
