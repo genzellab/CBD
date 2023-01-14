@@ -5,7 +5,7 @@
 
 ------------------------------------
 ## Pipeline (In Order)
-<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Chronic/Long%26Short_Ripples/Slope-Analysis/pipeline.png" align="center" height="150" width="300" ></a>
+<a href="url"><img src="https://github.com/pelinozsezer/CBD/blob/main/Chronic/Long%26Short_Ripples/Slope-Analysis/pipeline.png" align="center" height="150" width="350" ></a>
 ------------------------------------
 
 - **spectra_PFC/HPC.m:** Computes power spectrum with x and y axes in logarithms with a base of 10. For _Short Ripples vs Long Ripples_ per treatment.
