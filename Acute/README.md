@@ -93,3 +93,7 @@ _Event types:_
 ### Current Source Density Analysis
 
  - **Data Preprocessing for CSD:** https://github.com/genzellab/CBD/tree/main/Acute/Current-Source-Density-Analysis-(CSD)/data-processing-32-channels
+
+
+## Victor's older version of scripts.  
+[sleep_oscil_tools](https://github.com/VictorCanLima/sleep_oscil_tools) (Includes GUI Threshold reviewer)
