@@ -12,12 +12,12 @@ cd('F:\OSF\chronic\UMAP - All study days')
 
 % parameters for the analysis
 srate           = 2500;
-winsize         = 1*srate;                      % Equivalent to 1s
+winsize         = 1*srate;                      % Equivalent to 1 s
 overlap         = 0.8*winsize;                      % Equivalent to 50% of the window
 nfft            = 2^nextpow2(winsize);
 
 % 1. choose the folder to be analyzed
-selpath = uigetdir; % U-MAp all study days
+selpath = uigetdir; % UMAP all study days
 cd(selpath)
 
 % 2. get all the folders within this foler
