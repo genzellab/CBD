@@ -6,7 +6,7 @@ Scripts for CBD project.
 
 ## Folders: :file_folder: 
 - Acute: Anaesthesia recordings with silicon probes. (No behaviour)
-- Chronic: Sleep recordings acquired with tetrodes during the Object Space task.
+- Chronic: Sleep recordings acquired with wire electrodes during the Object Space task.
 
 
 ## Code credits:
