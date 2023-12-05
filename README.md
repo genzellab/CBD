@@ -6,7 +6,7 @@ Scripts for CBD project.
 
 CBD Chronic paper: [CBD lengthens sleep but shortens ripples and leads to intact simple but worse cumulative memory.](https://doi.org/10.1016/j.isci.2023.108327)
 
-## Folders: :file_folder: 
+## Folders :file_folder:
 - Acute: Anaesthesia recordings with silicon probes. (No behaviour)
 - Chronic: Sleep recordings acquired with wire electrodes during the Object Space task.
 
