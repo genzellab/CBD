@@ -4,7 +4,7 @@ Dependencies: To-add.
 # CBD repository
 Scripts for CBD project. 
 
-CBD Chronic preprint: [CBD lengthens sleep, shortens ripples and leads to intact simple but worse cumulative memory.](https://www.biorxiv.org/content/10.1101/2023.02.28.530388v1)
+CBD Chronic paper: [CBD lengthens sleep but shortens ripples and leads to intact simple but worse cumulative memory.](https://doi.org/10.1016/j.isci.2023.108327)
 
 ## Folders: :file_folder: 
 - Acute: Anaesthesia recordings with silicon probes. (No behaviour)
