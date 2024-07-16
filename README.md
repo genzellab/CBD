@@ -5,6 +5,7 @@ Dependencies: To-add.
 Scripts for CBD project. 
 
 CBD Chronic paper: [CBD lengthens sleep but shortens ripples and leads to intact simple but worse cumulative memory.](https://doi.org/10.1016/j.isci.2023.108327)
+
 CBD Acutes paper (in Revision)
 
 ## Folders :file_folder:
