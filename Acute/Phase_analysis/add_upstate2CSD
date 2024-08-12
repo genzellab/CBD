@@ -1,0 +1,15 @@
+cd /media/adrian/6aa1794c-0320-4096-a7df-00ab0ba946dc/CSD
+ratID = '213_veh'; % Adjust the ratID if needed
+
+gc_file = ['GC_ratID' ratID '.mat'];
+load(gc_file);
+%%
+sw_grouped = eval(['GC_sw_ratID' ratID '.grouped_oscil_table']);
+ripple_grouped = eval(['GC_ripple_ratID' ratID '.grouped_oscil_table']);
+swr_grouped = eval(['GC_swr_ratID' ratID '.grouped_oscil_table']);
+cswr_grouped = eval(['GC_complex_swr_ratID' ratID '.grouped_oscil_table']);
+
+sw_waveform = eval(['GC_sw_ratID' ratID '.waveform']);
+ripple_waveform = eval(['GC_ripple_ratID' ratID '.waveform']);
+swr_waveform = eval(['GC_swr_ratID' ratID '.waveform']);
+cswr_waveform = eval(['GC_complex_swr_ratID' ratID '.waveform']);
